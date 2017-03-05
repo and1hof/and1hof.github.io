@@ -4,12 +4,7 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+I am a full-stack software engineer living and working out of Bellevue, WA.
 
-### More Information
-
-A place to include any other types of information that you'd like to include about yourself.
-
-### Contact me
-
-[email@domain.com](mailto:email@domain.com)
+I run one of the most popular coding channels on YouTube (see footer), and I am always 
+trying to stay up to date and on top of tech trends (the ones that matter, that is).
