@@ -1,12 +1,12 @@
 ---
 layout: page
 title: whoami
-permalink: /whoami/
+permalink: /about/
 ---
 
 ### Personal Details
 I am a **software engineer** currently working and residing inside of Bellevue, WA. Right now I am happily 
-employed at [Salesforce](http://www.salesforce.com) [CRM](http://www.marketwatch.com/investing/stock/crm) - and previously have worked at a number of startups as both a FTE and contractor.
+employed at [Salesforce](http://www.salesforce.com) ([CRM](http://www.marketwatch.com/investing/stock/crm)) - and previously have worked at a number of startups as both a FTE and contractor.
 
 Although I was originally born and raised in Bozeman, MT - I always had a strong aptitude for technology which
 drove me to migrate west in search of new and exciting opportunities.
@@ -41,5 +41,5 @@ I also run one of the most popular [coding channels](http://www.youtube.com/devf
 
 ### Contact
 
-TODO
+The best way to get in contact with me is to message me directly on [LinkedIn](https://www.linkedin.com/in/andhofmt).
 
