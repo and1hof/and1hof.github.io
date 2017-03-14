@@ -1,7 +1,9 @@
 ---
 layout: post
-title: Building a Progressive File Uploader in EmberJS
+title: Building a Progressive File Uploader in ExpressJS
 ---
+
+> This blog post is on version: 0.2. You can read it right now, but it is not yet finished. 
 
 ### Introduction
 Uploading files is tricky (mostly conceptually), because it requires both front-end and back-end systems to be in sync. Building a system for uploading
@@ -35,6 +37,8 @@ npm install
 
 Now navigate to http://localhost:3000 - you should see a "Welcome to ExpressJS" message. This is where you will test your code.
 
+
+### Building the Front-End 
 If we browse through the files created by the ExpressJS generator, we will notice a few folders in the heirarchy. Right now we are 
 interested in the index file under "views". This is the default view which will be loaded when a user visits www.your-url.com.
 
@@ -45,8 +49,68 @@ Inside of this file, delete the markup and replace it with:
 <div class="progress">
     <div class="progress-bar" role="progressbar"></div>
 </div>
-<button class="btn btn-submit" type="button">Upload File</button>
-<input id="upload-button" type="file" name="uploads[]" multiple="multiple"></br>
+<button class="btn btn-submit upload-button" type="button">Upload File</button>
+<input id="upload-button-hidden" type="file" name="uploads[]" multiple="multiple"></br>
 ```
 
-TODO: finishing this article.
+The markup probably isn't pretty (yet), but serves some important functions. First off, it gives a submit button as a button class
+which we can style - and an input button which we will hide and call when the styled button is clicked. This means we can have both
+*choose file* and *upload file* from the same button markup. Confused? Keep reading, it will make sense soon.
+
+Lets navigate over to /public/css and make some modifications to the *styles.less* file here. We only need one style right now:
+
+```css
+#upload-button { display: none }
+```
+
+Again, we don't want to have a button for file selection *and* file upload. So the input will serve as file selection as far as the
+markup is concerned but will not render inside of the page.
+
+Also, we need to add some styles so our progress bar will display on the screen:
+
+```css
+.progress {
+    height: 25px;
+    width: 100%;
+    border 1px solid #333;
+}
+.progress-bar {
+    height: 25px;
+    background-color: blue;
+    width: 0%;
+}
+```
+
+Now we need to write some Javascript. Inside of /public/javascripts lets create an uploader.js file. 
+
+Link this file in your /views/index.html as so:
+
+```html
+<script src="javascripts/uploader.js"></script>
+```
+
+Also, lets add a dependency (JQuery) which will be useful for use inside of uploader.js:
+
+```html
+<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+```
+
+Now inside of /public/javascripts/uploader.js we need to handle a few actions.
+
+First off, we need to make sure that the width of our progress bar is always set to 0% before uploading:
+
+```javascript
+$('.upload-button').on('click', function (){
+    $('#upload-button-hidden').click();
+    $('.progress-bar').width('0%');
+});
+```
+
+This Javascript code will register an event listener on the upload-button class which will do the following when a click is registered:
+1. Click on the hidden upload button - opening a file input dialog
+2. Set the width of the progress bar to 0%, indicating that the file upload has not yet started
+
+
