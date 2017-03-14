@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Building a Progressive File Uploader in ExpressJS
+title: Building a Progressive File Uploader in NodeJS
 ---
 
 > This blog post is on version: v0.3. You can read it right now, but it is not yet finished. 
