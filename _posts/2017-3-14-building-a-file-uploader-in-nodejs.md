@@ -3,13 +3,13 @@ layout: post
 title: Building a Progressive File Uploader in NodeJS
 ---
 
-> This blog post is on version: v0.3. You can read it right now, but it is not yet finished. 
+[<img src="{{ site.baseurl }}/images/uploader.png" alt="File Uploader" style="width: 400px;"/>]({{ site.baseurl }}/)
 
 ### Introduction
-Uploading files is tricky (mostly conceptually), because it requires both front-end and back-end systems to be in sync. Building a system for uploading
-files and *tracking the progress* is even harder. And finally, building a *resumable* uploader is quite a challenge. In this tutorial,
-I will be building a progressive file uploader using **NodeJS** and **ExpressJS**. However, the concepts provided
-in this tutorial should easily translate to other languages and / or frameworks.
+Uploading files is tricky (mostly conceptually), because it requires a bit of front-end, back-end and some inbetween layers. Building a system for uploading
+files and *tracking the progress* is a bit harder. And finally, building a *resumable* uploader is quite a challenge. In this tutorial,
+I will be building a progressive file uploader using **NodeJS** and **ExpressJS**. Later on, I will try to revist this and turn it into a resumable file uploader
+using websockets. The concepts provided in this tutorial should easily translate to other languages and / or frameworks.
 
 ### Scaffolding out an ExpressJS server
 For starters, we need to have a webserver capable of deploying client side Javascript and running back-end Javascript. [ExpressJS](https://expressjs.com/)
@@ -235,3 +235,69 @@ to the client.
 
 If you run your application now, you should be able to upload files at http://localhost:3000 and than
 view the uploaded files inside of the /uploads directory in your application code.
+
+### Styling the Uploader
+
+For simplicities sake, I tried not to add too much CSS to the tutorial itself. But styling the uploader is actually quite straitforwards.
+You will want a fixed width container for the uploader, and some type of background for the progress bar. You can see an example I mocked up in
+[JSBin](http://jsbin.com/fujoqawoba/edit?html,css,output). Which contains this CSS:
+
+```css
+.tile {
+  display: block;
+  width: 400px;
+  height: 200px;
+  background-color: #fff;
+  padding: 15px;
+}
+
+.tile__title {
+  text-align: center;
+  font-weight: bold;
+}
+
+.tile__contents {
+  margin-top: 25px;
+}
+
+.progress {
+  width: 100%;
+  height: 25px;
+  border: 1px solid #333;
+  border-radius: 2px;
+}
+
+.progress-bar {
+  width: 50%;
+  height: 25px;
+  background: repeating-linear-gradient(
+  -55deg,
+  blue,
+  blue 10px,
+  orange 10px,
+  orange 20px
+);
+  
+}
+
+.progress-bar__text {
+  line-height: 25px;
+  text-align: center;
+}
+
+.button {
+  background-color: orange;
+  color: #fff;
+  width: 100px;
+  height: 25px;
+  margin-top: 40px;
+  text-align: center;
+  line-height: 25px;
+  border-radius: 2px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  cursor: pointer;
+}
+```
+And produces the screenshot at the beginning of the tutorial.
