@@ -8,7 +8,7 @@ title: Building a Progressive File Uploader in NodeJS
 ### Introduction
 Uploading files is tricky (mostly conceptually), because it requires a bit of front-end, back-end and some inbetween layers. Building a system for uploading
 files and *tracking the progress* is a bit harder. And finally, building a *resumable* uploader is quite a challenge. In this tutorial,
-I will be building a progressive file uploader using **NodeJS** and **ExpressJS**. Later on, I will try to revist this and turn it into a resumable file uploader
+I will be building a progressive file uploader using **NodeJS** and **ExpressJS**. Later on, I will revist this and turn it into a resumable file uploader
 using websockets. The concepts provided in this tutorial should easily translate to other languages and / or frameworks.
 
 ### Scaffolding out an ExpressJS server
@@ -240,7 +240,7 @@ view the uploaded files inside of the /uploads directory in your application cod
 
 For simplicities sake, I tried not to add too much CSS to the tutorial itself. But styling the uploader is actually quite straitforwards.
 You will want a fixed width container for the uploader, and some type of background for the progress bar. You can see an example I mocked up in
-[JSBin](http://jsbin.com/fujoqawoba/edit?html,css,output). Which contains this CSS:
+[JSBin](http://jsbin.com/hequtolide/edit?html,css,output). Which contains this CSS:
 
 ```css
 .tile {
