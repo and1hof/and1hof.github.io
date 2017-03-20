@@ -3,7 +3,7 @@ layout: post
 title: Building a Progressive File Uploader in NodeJS
 ---
 
-[<img src="{{ site.baseurl }}/images/uploader.png" alt="File Uploader" style="width: 400px;"/>]({{ site.baseurl }}/)
+<img src="{{ site.baseurl }}/images/uploader.png" alt="File Uploader"/>
 
 ### Introduction
 Uploading files is tricky (mostly conceptually), because it requires a bit of front-end, back-end and some inbetween layers. Building a system for uploading
