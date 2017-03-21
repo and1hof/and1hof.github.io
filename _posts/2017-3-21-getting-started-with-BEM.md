@@ -16,7 +16,7 @@ CSS components. In other words, it's a way of naming your CSS classes in order t
 3. Easily Namespacing Components
 
 BEM is just one of many ways to organize your CSS classes, and some of it's biggest competition comes
-from OOCSS, SMACSS and ACSS. I am not going to compare the pros/cons of these CSS methodologies in this post,
+from [OOCSS](https://appendto.com/2014/04/oocss/), [SMACSS](https://smacss.com/) and [ACSS](https://acss.io/). I am not going to compare the pros/cons of these CSS methodologies in this post,
 but I think you should look through all of them and make your own decisions if you are planning on building
 a project that will contain more than a few-thousand lines of CSS.
 
@@ -31,9 +31,9 @@ and shouldn't be too confusing to pick up. BEM is actually just an acryonym whic
 names should be organized. In BEM, "Block", "Element" and "Modifier" all are important terms which
 refer to various parts of a component styled in CSS:
 
-1. **Block**: A standalone component, e.g. header, container, menu, or input
-2. **Element**: A part of a block that has no standalone purpose and is tied to a block, e.g. "menu item" or "header title"
-3. **Modifier**: A flag on a block or an element. Modifies the default behavior, e.g. "menu item disabled", or "header title secondary"
+1. **Block**: A standalone component, e.g. *header*, *container*, *menu*, or input
+2. **Element**: A part of a block that has no standalone purpose and is tied to a block, e.g. *menu item* or *header title*
+3. **Modifier**: A flag on a block or an element. Modifies the default behavior, e.g. *menu item disabled*, or *header title secondary*
 
 Lets imagine that we have a component that a single post in a web forum. We can break this 
 component down to a few important UI components:
@@ -41,7 +41,7 @@ component down to a few important UI components:
 1. **Post**: a single forum post
 2. **Title**: the title of a forum post
 3. **Reply Button**: A button to reply to a forum post
-4. **Disabled Reply Button** for when you are not able to reply to a forum post
+4. **Disabled Reply Button**: for when you are not able to reply to a forum post
 
 In HTML/HBS and BEM we can represent this component like this:
 
