@@ -5,8 +5,6 @@ title: Getting Started with BEM
 
 <img src="{{ site.baseurl }}/images/BEM.jpg" alt="BEM CSS"/>
 
-> This post is in progress and has not yet been finished. You can read it, but it expect serious changes in the future.
-
 ### What is BEM?
 BEM - or "Block Element Modifier" is a methodology that helps you build complex
 CSS components. In other words, it's a way of naming your CSS classes in order to accomplish a few difficult things:
