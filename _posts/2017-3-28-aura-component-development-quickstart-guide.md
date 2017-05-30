@@ -26,9 +26,9 @@ This means, that in order to develop Aura components right now (prior to Salesfo
 
 To get started with Aura development in it's current stage you will have to open up your Salesforce instance my-instance.salesforce.com and navigate to the top right menu bar. From here you can open the "developer console".
 
-<img src="{{ site.baseurl }}/images/2017-3-28/developer-console.png" alt="locker service"/>
-
 From the developer console you are going to want to select "file" on your menu bar and than click new -> lightning component. This will generate a lightning component bundle which starts out with just a .cmp file (similar to HTML), but can be extended to include other pieces such as controllers, helpers, and renderers. Click these pieces on the right of the developer console to generate scaffolds and add them to your lightning component bundle.
+
+<img src="{{ site.baseurl }}/images/2017-3-28/developer-console.png" alt="locker service"/>
 
 ### Lightning Component Bundles
 Now I will explain each piece of a lightning component bundle, and their roles in building front-end components.
@@ -186,3 +186,19 @@ The SVG dictates an icon which will be visible to admins within Salesforce UI lo
 The documentation is simply a XML style documentation block which will also be present for admins when scrolling through a list of lightning components they wish to use (for example in lightning communities - a visual page builder).
 
 The design file allows you to specify what attributes in your lightning component can be set by an admin. For example, if you have a cost component you can let an admin of a lightning community decide if they wish to display the cost in USD or another currency by defining a dropdown menu of choices within the .design file.
+
+#### Use Cases for Aura Components
+Depending on how you swing your usage of the *implements* tag, you can integrate Aura components inside of lightning tabs in Salesforce, or inside of the upcoming lightning communities which you can deploy from your Salesforce instance to build custom web applications on top of Salesforce data and functionality.
+
+I've found that lightning tabs are the easiest way to debug your Aura components, but sometimes the CSS and JS caches are out of sync. The way CSS and JS are cached is not public information
+but in my experience it can take up to 5 minutes in a tab for full synchronization after modifying a component and reloading the tab for testing.
+
+Lightning communities do not seem to have this problem. However, they do have some quirks regarding their versioning of SLDS CSS (it is not always the same as on the rest of the platform) and
+URL hyperlinks. When I test components in lightning communities I opt to open up the page in the builder and than preview -> open in new tab. The new tab is reloadable so you don't have to navigate through the builder every time you push new code.
+
+### Conclusion
+Aura acts similarly to other frameworks, albeit with a bit less polish and a few more quirks. It offers you a lot of power on top of Salesforce, but is still new technology and is frequently improving. If you begin building Aura components right now, I would consider you an early adopter. I think the technology has a lot of potential for powerful and rapid development, and I am excited to see where it is in a few years. 
+
+I apologize for the lack of direction in this post, it started off as a tutorial and ended up informational. I wanted to condense my knowledge of Aura down and put in a format that would please developers rather than admins. The bulk of trailhead (tutorials built by Salesforce) is aimed at Admins, and doesn't touch the intricacies of Aura development in a way that a developer would want.
+
+Feel free to get in contact with me (LinkedIn preferred) with any questions or comments.
