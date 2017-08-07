@@ -3,7 +3,7 @@ layout: post
 title: Debugging Javascript in Chrome
 ---
 
-<img src="{{ site.baseurl }}/images/uploader.png" alt="File Uploader"/>
+// todo thumbnail
 
 ===> This post is currently "in-progress", it is not yet finished but you may read what has already been written. <===
 
