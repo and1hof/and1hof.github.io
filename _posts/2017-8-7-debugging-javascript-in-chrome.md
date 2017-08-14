@@ -5,7 +5,10 @@ title: Debugging Javascript in Chrome
 
 // todo thumbnail
 
-===> This post is currently "in-progress", it is not yet finished but you may read what has already been written. <===
+===>
+This post is currently "in-progress", it is not yet finished but you may read what has already been written.
+Last Update: Aug. 14, 2017
+<===
 
 ### Introduction
 One of the biggest hurdles I see new Javascript developers run into, is learning the tools required to debug Javascript code. Unlike traditional compiled languages,
@@ -95,10 +98,44 @@ bottleneck.
 I would start off getting familiar with the console and elements tabs since they tie in closely to the remaining tabs.
 
 ### Sources
+// sources screenshot
+
+The sources tab is important, but I believe you should first master both the console and elements tabs. The sources tab shows you the raw HTML, CSS and JS files that
+where loaded in the browser. It is important to understand how this differs from the elements tab. The elements tab is the current state of the DOM in memory. The sources
+tab shows the files that where used to generate that DOM. In otherwords, if you have Javascript that dynamically modifies the DOM (think React / EmberJS), you can see your
+JS code in the sources tab but it might not be in the elements tab.
+
+The sources tab is also an excellent place for debugging. Here we can set breakpoints in any file the browser has access to. Reload the page, and whenever that breakpoint is hit
+Chrome will suspend execution until you click step forwards.
+
+As a result, when building SPA style applications - much of your debugging will happen in the sources tab because here you can view your original code before it is
+fed into the DOM and manipulated by whatever SPA framework you are using.
 
 ### Network
+// network screenshot
+
+The network tab is important in it's own right, but is a bit more self explanatory. When firing API calls, (e.g. JQuery AJAX or vanilla JS XHR) you can see both the
+sent data and the response in this tab. It works very similar to a dumbed down version of Postman in some regards. You can also configure it to show you when CSS / JS / Media files load in over the network, which is useful for troubleshoot slow load times.
+
+After a network transaction, you will see a short string representing the transaction appear on the left hand pane. If you click on this you can get more details. Most importantly:
+
+1. Status Codes
+2. Response and Request Headers (frequently used for things like authorization)
+3. Cookies
+4. Timing / Duration Waited
+
+When building up applications that make frequent requests to the server, you can also use the performance map at the top of the tab to gauge how to better optimize your application.
+Frequently, you will find bottlenecks here like:
+
+1. Making many calls to the same API from the same page (solution: cache)
+2. Making many calls synchronously rather than async (solution: Async Semaphore or Promise.all)
+3. High latency calls due to geography (solution: CDN)
+
+Generally speaking, when not used for checking the status / payload of a call - this will be used primarily for performance testing. Remember, most front-end performance bottlenecks
+are not in the algorithms but in the API calls!
 
 ### Performance
+// performance screenshot
 
 ### Memory
 
