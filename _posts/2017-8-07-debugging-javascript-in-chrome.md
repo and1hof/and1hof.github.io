@@ -7,7 +7,7 @@ title: Debugging Javascript in Chrome
 
 ===>
 This post is currently "in-progress", it is not yet finished but you may read what has already been written.
-Last Update: Aug. 14, 2017
+Last Update: Aug. 22, 2017
 <===
 
 ### Introduction
