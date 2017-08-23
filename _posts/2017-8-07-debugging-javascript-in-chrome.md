@@ -3,7 +3,7 @@ layout: post
 title: Debugging Javascript in Chrome
 ---
 
-// todo thumbnail
+<img src="{{ site.baseurl }}/images/2017-8-07/overview.jpg" alt="chrome developer tools"/>
 
 ===>
 This post is currently "in-progress", it is not yet finished but you may read what has already been written.
@@ -41,7 +41,7 @@ Each of these has a purpose, and you can skip around in this post if there is a 
 for simplicities sake I will just go from left to right describing each tab's usage and providing some example cases.
 
 ### Elements
-// Elements screenshot
+<img src="{{ site.baseurl }}/images/2017-8-07/elements.png" alt="chrome developer tools"/>
 
 The elements tab is where you will spend most of your time debugging HTML and CSS issues. This tab displays the DOM's current (live) state. This means, after writing your
 application with HTML + JS and styling it with CSS you will be able to see the final output here. If you have JS code which modifies the state of the DOM when an action occurs,
@@ -54,7 +54,7 @@ Beyond being able to see the production state of the HTML and CSS code, the deve
 in the HTML pane, you can modify it's properties, attributes, and associated styles in real-time. This is also excellent for faking posts / messages / pages, so don't trust any screenshots you see on the internet. Yes, you can use developer tools on other people's websites and apps.
 
 ### Console
-// Console screenshot
+<img src="{{ site.baseurl }}/images/2017-8-07/console.png" alt="chrome developer tools"/>
 
 The developer console is where you will spend most of your time debugging your Javascript code. In here, the current state of the application is in scope. You can use this to check
 console.log() statements, the results of XHR requests and do simple performance testing. Interestingly enough, this tab has a lot of interactions with other tabs. An onmouseclick
@@ -98,7 +98,7 @@ bottleneck.
 I would start off getting familiar with the console and elements tabs since they tie in closely to the remaining tabs.
 
 ### Sources
-// sources screenshot
+<img src="{{ site.baseurl }}/images/2017-8-07/sources.png" alt="chrome developer tools"/>
 
 The sources tab is important, but I believe you should first master both the console and elements tabs. The sources tab shows you the raw HTML, CSS and JS files that
 where loaded in the browser. It is important to understand how this differs from the elements tab. The elements tab is the current state of the DOM in memory. The sources
@@ -112,7 +112,7 @@ As a result, when building SPA style applications - much of your debugging will 
 fed into the DOM and manipulated by whatever SPA framework you are using.
 
 ### Network
-// network screenshot
+<img src="{{ site.baseurl }}/images/2017-8-07/network.png" alt="chrome developer tools"/>
 
 The network tab is important in it's own right, but is a bit more self explanatory. When firing API calls, (e.g. JQuery AJAX or vanilla JS XHR) you can see both the
 sent data and the response in this tab. It works very similar to a dumbed down version of Postman in some regards. You can also configure it to show you when CSS / JS / Media files load in over the network, which is useful for troubleshoot slow load times.
