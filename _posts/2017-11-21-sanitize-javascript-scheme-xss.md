@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Sanitize JavaScript Pseudo Scheme to Prevent XSS Attacks
+title: Sanitize JavaScript Scheme to Prevent XSS
 ---
 
 Outside of the most commonly known and supported URI schemes (http:// and https://), most modern web browsers support a full roster of alternate and legacy URI schemes.
