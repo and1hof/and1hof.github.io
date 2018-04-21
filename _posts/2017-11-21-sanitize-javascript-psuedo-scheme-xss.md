@@ -3,6 +3,8 @@ layout: post
 title: Sanitize JavaScript Scheme to Prevent XSS
 ---
 
+<img src="{{ site.baseurl }}/images/js-scheme.png" alt="js-scheme"/>
+
 Outside of the most commonly known and supported URI schemes (http:// and https://), most modern web browsers support a full roster of alternate and legacy URI schemes.
 
 Here are some alternate URI schemes you may be familiar with already:
