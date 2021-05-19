@@ -46,11 +46,11 @@ In HTML/HBS and BEM we can represent this component like this:
 ```html
 <div class="post">
     <div class="post__title">My Post</div>
-    {{#if isReplyEnabled}}
+    <!-- if isReplyEnabled -->
         <div class="post__reply-button--enabled"></div>
-    {{else}}
+    <!-- else -->
         <div class="post__reply-button--disabled"></div>
-    {{/if}}
+    <!-- end if -->
 </div>
 ```
 In this example, our *block* element is "post" - a container for all sub elements. The *elements*
