@@ -8,7 +8,6 @@ title: Debugging Javascript in Chrome
 ===>
 This post is currently "in-progress", it is not yet finished but you may read what has already been written.
 Last Update: Aug. 22, 2017
-<===
 
 ### Introduction
 One of the biggest hurdles I see new Javascript developers run into, is learning the tools required to debug Javascript code. Unlike traditional compiled languages,
