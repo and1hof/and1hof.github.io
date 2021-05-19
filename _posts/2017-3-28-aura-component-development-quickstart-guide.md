@@ -89,7 +89,7 @@ By clicking "style" in the right hand side of the developer console, you can gen
 
 In order to namespace CSS to the component, each CSS declaration must be prefixed with *.THIS*. The .THIS is a marker that will be replaced with a unique identifier once it comes time to render your component in the browser.
 
-```CSS
+```css
 .THIS .myComponent {
     background-color: #fff;
     margin: 0;
