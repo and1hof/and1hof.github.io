@@ -5,18 +5,19 @@ permalink: /about/
 ---
 
 ### Personal Details
-I am a **senior security engineer** working and residing inside of Bellevue, WA. Right now I am happily 
-employed at [Salesforce](http://www.salesforce.com) ([CRM](http://www.marketwatch.com/investing/stock/crm)) where I am the security lead for 15 teams in Lightning Platform - a department specializing in JavaScript / DOM / NodeJS development.
+I am a **senior security engineer** working and residing inside of Seattle, WA. Right now I am happily 
+employed at [Coinbase](https://www.coinbase.com) ([COIN](http://www.marketwatch.com/investing/stock/coin)) where I am the security lead for multiple user-facing products such as the Coinbase Web App, Coinbase Mobile App and Coinbase Card.
+
+Previously I worked at [Salesforce](https://www.salesforce.com) ([CRM](http://www.marketwatch.com/investing/stock/crm)) where I was the security lead for 15 teams in Lightning Platform - a department specializing in JavaScript / DOM / NodeJS development.
 
 Prior to working at Salesforce I worked at a number of startups as a software engineer, both as a FTE and contractor.
 
-Although I was originally born and raised in Bozeman, MT - I always had a strong aptitude for technology which
-drove me to migrate west in search of new and exciting opportunities.
+Although I was originally born and raised in Bozeman, MT - I always had a strong aptitude for technology which drove me to migrate west in search of new and exciting opportunities.
 
 ### Skills & Technologies
 I am a big advocate of **full-stack JavaScript** as developing applications in a single language dramatically reduces context switching penalties and with smart architecture can reduce dependency management difficulty as well.
 
-At serveral points in my career I have worked with **TC39** - the technical architecture committee under **ECMA International** (creators and maintainers of JavaScript). Most of my efforts with this have been towards architecting next gen JavaScript security features like **[Realms](https://github.com/tc39/proposal-realms)**.
+At serveral points in my career I have worked with **TC39** - the technical architecture committee under **ECMA International** (creators and maintainers of the JavaScript programming language). Most of my efforts with this have been towards architecting next gen JavaScript security features like **[Realms](https://github.com/tc39/proposal-realms)**.
 
 I also wrote a security book that outlines the latest archetypes of vulnerabilities found in JavaScript-based web applications. You can find my book **Web Application Security: Exploitation and Countermeasures** [here](https://amzn.to/3g8LNvT).
 
@@ -24,14 +25,13 @@ I've read the entire [TC39 ECMA-262 standard](https://www.ecma-international.org
 
 Beyond JavaScript, I have worked in both **C#** and **Java** at professionally. 
 
-My favorite language outside of JavaScript however is **C**, as I prefer using either high or low level languages and find the inbetween languages a bit frustrating. 
+My favorite language outside of JavaScript however is **C**, as I prefer using either high or low level languages and find the inbetween languages frustrating. 
 
-I have hobby experience with AI including building a [neural network to predict League of Legends game outcomes](https://www.team-comp.com/). This AI was featured by several sites in 2018 and had over 1,000,000 visitors as it more accurately predicted the outcome of the 2018 LCS tournament than many pro game casters.
+As a security engineer I focus on deep, rigorous data-flow and technology analysis during architecture, application-wide framework level mitigations while coding and both automated and manual auditing of high
+severity technical features.
 
 ### Hobbies
 I enjoy **reading**, **writing**, **meditation**, **kayaking**, **hiking**, **gardening** and other peaceful activities that help me relax. I find that I obsess over work at times and need to cool down and recharge. Re-connecting with nature through gardening and outdoor activies has been really helpful in that regard.
-
-I used to run one of the most popular [coding channels](http://www.youtube.com/devfactor) on YouTube.
 
 ### Contact
 
