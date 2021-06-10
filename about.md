@@ -5,8 +5,9 @@ permalink: /about/
 ---
 
 ### Personal Details
-I am a **senior security engineer** working and residing inside of Seattle, WA. Right now I am happily 
-employed at [Coinbase](https://www.coinbase.com) ([COIN](http://www.marketwatch.com/investing/stock/coin)) where I am the security lead for multiple user-facing products such as the Coinbase Web App, Coinbase Mobile App and Coinbase Card.
+I am a **senior security engineer** working and residing inside of Seattle, WA. I focus on deep, rigorous data-flow and technology analysis during architecture, application-wide framework level mitigations while coding and both automated and manual auditing of high risk technical features.
+
+Currently I am happily employed at [Coinbase](https://www.coinbase.com) ([COIN](http://www.marketwatch.com/investing/stock/coin)) where I am the security lead for multiple user-facing products such as the Coinbase Web App, Coinbase Mobile App and Coinbase Card.
 
 Previously I worked at [Salesforce](https://www.salesforce.com) ([CRM](http://www.marketwatch.com/investing/stock/crm)) where I was the security lead for 15 teams in Lightning Platform - a department specializing in JavaScript / DOM / NodeJS development.
 
@@ -26,9 +27,6 @@ I've read the entire [TC39 ECMA-262 standard](https://www.ecma-international.org
 Beyond JavaScript, I have worked in both **C#** and **Java** at professionally. 
 
 My favorite language outside of JavaScript however is **C**, as I prefer using either high or low level languages and find the inbetween languages frustrating. 
-
-As a security engineer I focus on deep, rigorous data-flow and technology analysis during architecture, application-wide framework level mitigations while coding and both automated and manual auditing of high
-severity technical features.
 
 ### Hobbies
 I enjoy **reading**, **writing**, **meditation**, **kayaking**, **hiking**, **gardening** and other peaceful activities that help me relax. I find that I obsess over work at times and need to cool down and recharge. Re-connecting with nature through gardening and outdoor activies has been really helpful in that regard.
