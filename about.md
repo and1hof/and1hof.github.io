@@ -5,7 +5,7 @@ permalink: /about/
 ---
 
 ### Personal Details
-I am a **senior security engineer** working and residing inside of Seattle, WA. I focus on deep, rigorous data-flow and technology analysis during architecture, application-wide framework level mitigations while coding and both automated and manual auditing of high risk technical features.
+I am a **senior security engineer** working and residing inside of Seattle, WA.
 
 Currently I am happily employed at [Coinbase](https://www.coinbase.com) ([COIN](http://www.marketwatch.com/investing/stock/coin)) where I am the security lead for multiple user-facing products such as the Coinbase Web App, Coinbase Mobile App and Coinbase Card.
 
