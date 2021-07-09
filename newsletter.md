@@ -1,13 +1,11 @@
 ---
 layout: page
-title: Newsletter
+title: Andrew Hoffman's No-Spam Newsletter
 permalink: /newsletter/
 ---
 
-### Andrew Hoffman's No-Spam Newsletter
-
 Want to keep up to date with the latest in application security, software engineering 
-and other topics of interest?
+and other interesting topics?
 
 My once-per month no-spam email list is the best way to do that as it's manually curated, contains info on hard to find but interesting topics as well as interviews
 with top pen testers, engineers, architects and people working on cool upcoming technology.
