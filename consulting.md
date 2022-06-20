@@ -14,9 +14,9 @@ bottom to reach me with a custom inquiry.
 I will comprehensively review the design for an upcoming (or existing) product or feature your team is working on. I will work with your 
 engineers to find significant architectural security gaps, document them and propose solutions. 
 
-This is the best way to improve your security posture, provided you already have a sufficient SSDL process. 
+Often, resolving vulnerabilities at the architecture/design phase of development takes a fraction of the time that it does post-implementation and release.
 
-Often, resolving vulnerabilities at the architecture/design phase of development takes a fraction of the time that it does post-implementation and release. 
+This is the best way to improve your security posture, provided you already have a sufficient SSDL process. 
 
 ### Secure Software Development Lifecycle (SSDL)
 I will assist your company in designing and implementing an SSDL process which will allow them to ship secure code on their own,
