@@ -5,7 +5,7 @@ permalink: /about/
 ---
 
 ### Personal Details
-I am a **security architect** working and residing inside of Seattle, WA.
+I am a **senior security architect** working and residing inside of Seattle, WA.
 
 Currently I am happily employed at [Coinbase](https://www.coinbase.com) ([COIN](http://www.marketwatch.com/investing/stock/coin)) where I am the security lead for multiple user-facing products such as Ethereum Staking, Coinbase Web App, Coinbase Mobile App and Coinbase Card.
 
