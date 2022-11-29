@@ -43,7 +43,7 @@ NPM also made popular design choices by switching to [JSON configuration files](
 NPM could also be used as a tool in developing server-side applications, thanks to the rapid adoption of [NodeJS](https://en.wikipedia.org/wiki/Node.js). This meant a full-stack web application could be developed easily in-part with open-source software from developers across the web. 
 
 ### Third Party Code & Security Concerns
-<img src="{{ site.baseurl }}/assets/2022-11-28/oss.png" alt="oss"/>
+<img src="{{ site.baseurl }}/assets/2022-11-28/oss.PNG" alt="oss"/>
 
 According to a [study funded by Synopsys in 2020](https://ttpsc.com/wp3/wp-content/uploads/2020/10/2020-ossra-report.pdf), nintey-nine percent (99%) of commercial code bases now include open source software. 
 
@@ -73,7 +73,7 @@ What SCA tools do not tell you, is if your first-party code-base is actually cap
 In other words, it's possible that your expensive (often $100,000+ / year) SCA tooling is presenting you with [very little signal in the midst of a lot of noise](https://en.wikipedia.org/wiki/Signal-to-noise_ratio). 
 
 ### Signal vs Noise
-<img src="{{ site.baseurl }}/assets/2022-11-28/jquery.png" alt="jquery"/>
+<img src="{{ site.baseurl }}/assets/2022-11-28/jquery.PNG" alt="jquery"/>
 
 Despite falling in popularity in recent years, [JQuery](https://www.npmjs.com/package/jquery) is still one of the most popular JavaScript libraries. On average, it recieves about 4,000,000 downloads each week via NPM.
 
@@ -104,7 +104,7 @@ That means that SCA tools likely had a false-positive rate of 99.3% in regards t
 ### Reachability Analysis
 <img src="{{ site.baseurl }}/assets/2022-11-28/reach2.png" alt="reach2"/>
 
-It's 2022 and SCA tools are slowly but surely becoming more advanced. Semgrep and Snyk are now offering beta versions of a new feature called **reachability**. 
+It's 2022 and SCA tools are slowly but surely becoming more advanced. [Semgrep](https://semgrep.dev/) and [Snyk](https://snyk.io/) are now offering beta versions of a new feature called **reachability**. 
 
 According to [a blog post by Snyk](https://snyk.io/blog/prioritize-fixes-with-reachable-vulnerabilities-for-github/) reachability is a combination of SCA and static analysis working in tandem. 
 
