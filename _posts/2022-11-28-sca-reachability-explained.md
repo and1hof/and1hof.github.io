@@ -1,9 +1,12 @@
 ---
 layout: post
-title: Reachability Analysis: Next-gen SCA "Killer Feature"?
+title: Reachability Analysis&#58; Next-gen SCA "Killer Feature"?
 ---
 
 <img src="{{ site.baseurl }}/assets/2022-11-28/reach.png" alt="snyk reachability analysis"/>
+
+### Background
+This is a post about a new technology that I believe has the potential to drastically change the way in which organizations choose automated tools for discovering and resolving vulnerabilities in web application source code.
 
 ### Maven's Server-side Revolution
 In July of 2004, [Maven v1.0](https://en.wikipedia.org/wiki/Apache_Maven) was released to the general public by [Jason van Zyl](https://twitter.com/jvanzyl) - a project that was funded by and would eventually become part of the [Apache Software Foundation](https://www.apache.org)’s suite of open source software products. 
