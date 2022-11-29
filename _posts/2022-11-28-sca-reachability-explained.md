@@ -1,14 +1,15 @@
 ---
 layout: post
-title: Reachability Analysis&#58; Next-gen SCA "Killer Feature"?
+title: Reachability Analysis&#58; SCA "Killer Feature"?
 ---
 
 <img src="{{ site.baseurl }}/assets/2022-11-28/reach.png" alt="snyk reachability analysis"/>
 
 ### Background
-This is a post about a new technology that I believe has the potential to drastically change the way in which organizations choose automated tools for discovering and resolving vulnerabilities in web application source code.
+This is a post about a new technology that I believe has the potential to drastically change the way in which organizations choose automated tools for discovering and managing vulnerabilities in web application source code.
 
 ### Maven's Server-side Revolution
+<img src="{{ site.baseurl }}/assets/2022-11-28/maven.png" alt="maven logo"/>
 In July of 2004, [Maven v1.0](https://en.wikipedia.org/wiki/Apache_Maven) was released to the general public by [Jason van Zyl](https://twitter.com/jvanzyl) - a project that was funded by and would eventually become part of the [Apache Software Foundation](https://www.apache.org)’s suite of open source software products. 
 
 Initially, Maven was used primarily as a Java build automation tool. Maven assisted developers in automating away critical steps in the software development lifecycle. Common steps that could be automated via Maven and a simple XML configuration file included: 
@@ -30,8 +31,8 @@ so a developer could focus on building application logic rather than fumbling ar
 With this new feature came a paradigm shift, resulting in server-side applications being comprised of first-party code from known authors, and third-party code from unknown authors. Software development become more collaborative overnight. 
 
 ### NPM's Client-side Revolution
-
-In 2010, Isaac Z. Schlueter would launch [NPM](https://npmjs.com) - a package manager for JavaScript-based applications. With JavaScript being the only programming language supported by web browsers, NPM would allow client-side applications to consume open-source software across the web in a similar fashion to that of previous server-side package managers like Maven (NPM was also inspired by PHP's "PEAR" and Perl's "CPAN"). 
+<img src="{{ site.baseurl }}/assets/2022-11-28/npm.png" alt="npm logo"/>
+In 2010, [Isaac Z. Schlueter](https://www.linkedin.com/in/isaacschlueter) would launch [NPM](https://npmjs.com) - a package manager for JavaScript-based applications. With JavaScript being the only programming language supported by web browsers, NPM would allow client-side applications to consume open-source software across the web in a similar fashion to that of previous server-side package managers like Maven (NPM was also inspired by PHP's "PEAR" and Perl's "CPAN"). 
 
 NPM also made popular design choices by switching to JSON configuration files, a "safe serialization" format which is more appropriate for handling untrusted data than XML. It also offered more flexibility than XML which resulted in developers building on top of the package manager in a multitude of creative ways. 
 
@@ -71,7 +72,7 @@ Despite falling in popularity in recent years, [JQuery](https://www.npmjs.com/pa
 
 The entire developer-facing public API of JQuery can be found at [api.jquery.com](https://api.jquery.com). With a quick snippet of JavaScript, we can calculate how many public functions the JQuery API includes:
 
-```JavaScript
+```javascript
 let n = 0
 document.querySelectorAll(".entry-title").forEach(() => {
  n += 1;
