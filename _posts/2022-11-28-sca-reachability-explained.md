@@ -85,7 +85,7 @@ document.querySelectorAll(".entry-title").forEach(() => {
  n += 1;
 });
 
-console.log(n)
+console.log(n) // returns 318 as of 11/28/2022
 ```
 
 As of the time of writing this (11/28/2022) the JQuery public API had 318 functions. 
