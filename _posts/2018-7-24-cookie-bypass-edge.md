@@ -50,5 +50,3 @@ http.onreadystatechange = function() {
 }
 http.send(params);
 ```
-
-I reached out to the Edge team last month and was informed this has been backlogged and may be fixed in a "future release". 

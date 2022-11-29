@@ -89,7 +89,7 @@ By clicking "style" in the right hand side of the developer console, you can gen
 
 In order to namespace CSS to the component, each CSS declaration must be prefixed with *.THIS*. The .THIS is a marker that will be replaced with a unique identifier once it comes time to render your component in the browser.
 
-```CSS
+```css
 .THIS .myComponent {
     background-color: #fff;
     margin: 0;
@@ -108,9 +108,9 @@ Instead, we will use our controller methods as an intermediary between the .cmp 
 
 ```javascript
 ({
-	helloWorldButtonClicked: function(component, event, helper) {
-		helper.printHelloWorld(component);
-	}
+  helloWorldButtonClicked: function(component, event, helper) {
+    helper.printHelloWorld(component);
+  }
 })
 ```
 As the intermediary, the controller is responsible for passing through the required data to the helper which it gathers from the markup. It has access to the *component* param as well, which is a JS object containing a representation of the entire component including the attributes in the .cmp.
@@ -146,23 +146,23 @@ The helper looks identical to the controller, but has a different default scope.
 
 ```javascript
 ({
-	printHelloWorld: function(component) {
-	    let message = component.get('message');
-	    console.log(message);
-    }
+   printHelloWorld: function(component) {
+    let message = component.get('message');
+    console.log(message);
+  }
 })
 ```
 Since helpers can also call other helpers easily, it makes it possible to break down your code into more modular bits for the sake of organization:
 ```javascript
 ({
-	printHelloWorld: function(component) {
-		let message = component.get('message');
-	    this.printToConsole(message);
-    },
+  printHelloWorld: function(component) {
+    let message = component.get('message');
+    this.printToConsole(message);
+  },
 
-    printToConsole: function(text) {
-        console.log(message);
-    }
+  printToConsole: function(text) {
+    console.log(message);
+  }
 })
 ```
 #### Renderer
@@ -172,9 +172,9 @@ For example, if you are writing a component that displays a form field and betwe
 
 ```javascript
 ({
-	rerender: function(component, helper) {
-		helper.clearApplicationState();
-    }
+  rerender: function(component, helper) {
+    helper.clearApplicationState();
+  }
 })
 ```
 
@@ -198,7 +198,3 @@ URL hyperlinks. When I test components in lightning communities I opt to open up
 
 ### Conclusion
 Aura acts similarly to other frameworks, albeit with a bit less polish and a few more quirks. It offers you a lot of power on top of Salesforce, but is still new technology and is frequently improving. If you begin building Aura components right now, I would consider you an early adopter. I think the technology has a lot of potential for powerful and rapid development, and I am excited to see where it is in a few years. 
-
-I apologize for the lack of direction in this post, it started off as a tutorial and ended up informational. I wanted to condense my knowledge of Aura down and put in a format that would please developers rather than admins. The bulk of trailhead (tutorials built by Salesforce) is aimed at Admins, and doesn't touch the intricacies of Aura development in a way that a developer would want.
-
-Feel free to get in contact with me (LinkedIn preferred) with any questions or comments.
