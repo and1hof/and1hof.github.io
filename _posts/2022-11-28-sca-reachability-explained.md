@@ -23,42 +23,48 @@ Eventually, the scope of Apache’s Maven product expanded to include a new but 
 
 According to Wikipedia, a [killer feature](https://en.wikipedia.org/wiki/Killer_feature) is a feature that is so fundamentally groundbreaking and important that a user will switch from a similar competitor product for the sole purpose of obtaining said new feature. It could be said that a killer feature revolutionizes the way in which users make use of a product such that the value proposition of other features pale in comparison.
 
-Maven's killer feature was third-party package management. Despite not being the first package manager supporting third-party code - Maven utilized a simple XML configuration structure, attached itself to one of the most popular back-end languages and launched a developer-driven marketing campaign backed with slick IDE integrations and a popular command-line interface. 
+Maven's killer feature was [third-party package management](https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html). Despite not being the first package manager supporting third-party code: Maven utilized a [simple XML configuration structure](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html#minimal-pom), attached itself to one of the most popular back-end languages and launched a developer-driven marketing campaign backed with slick IDE integrations and a popular command-line interface. 
 
-Suddenly, million's of lines of open-source software was available at a developers fingertips and added little-to-no difficulty at the build step. The difficult parts of including another developer's code in your Java application where abstracted away 
+Before long million's of lines of open-source software was available at a developers fingertips and added little-to-no difficulty at the build step. 
+
+The difficult parts of including another developer's code in your Java application where abstracted away 
 so a developer could focus on building application logic rather than fumbling around with manual build processes. 
 
-With this new feature came a paradigm shift, resulting in server-side applications being comprised of first-party code from known authors, and third-party code from unknown authors. Software development become more collaborative overnight. 
+With this new feature came a paradigm shift, resulting in server-side applications being comprised of first-party code from *known authors*, and third-party code from *unknown authors*. Software development become more collaborative overnight. 
 
 ### NPM's Client-side Revolution
 <img src="{{ site.baseurl }}/assets/2022-11-28/npm.png" alt="npm logo"/>
-In 2010, [Isaac Z. Schlueter](https://www.linkedin.com/in/isaacschlueter) would launch [NPM](https://npmjs.com) - a package manager for JavaScript-based applications. With JavaScript being the only programming language supported by web browsers, NPM would allow client-side applications to consume open-source software across the web in a similar fashion to that of previous server-side package managers like Maven (NPM was also inspired by PHP's "PEAR" and Perl's "CPAN"). 
+Later in 2010, [Isaac Z. Schlueter](https://www.linkedin.com/in/isaacschlueter) would launch [NPM](https://npmjs.com) - a package manager for JavaScript-based applications. 
 
-NPM also made popular design choices by switching to JSON configuration files, a "safe serialization" format which is more appropriate for handling untrusted data than XML. It also offered more flexibility than XML which resulted in developers building on top of the package manager in a multitude of creative ways. 
+With JavaScript being the only programming language supported by web browsers, NPM would allow client-side applications to consume open-source software across the web in a similar fashion to that of previous server-side package managers like Maven (NPM was also inspired by PHP's "[PEAR](https://pear.php.net/)" and Perl's "[CPAN](https://www.cpan.org/)"). 
 
-Later NPM could also be used as a tool in developing server-side applications, with the rapid adoption of NodeJS. This meant a full-stack web application could be developed easily in-part with open-source software from developers across the web. 
+NPM also made popular design choices by switching to [JSON configuration files](https://docs.npmjs.com/cli/v9/configuring-npm/package-json), a "safe serialization" format which is more appropriate for handling untrusted data than XML. It also offered more flexibility than XML which resulted in developers building on top of the package manager in a multitude of creative ways. 
+
+NPM could also be used as a tool in developing server-side applications, thanks to the rapid adoption of [NodeJS](https://en.wikipedia.org/wiki/Node.js). This meant a full-stack web application could be developed easily in-part with open-source software from developers across the web. 
 
 ### Third Party Code & Security Concerns
+<img src="{{ site.baseurl }}/assets/2022-11-28/oss.png" alt="oss"/>
 
-According to a [study funded by Synopsys in 2020](https://ttpsc.com/wp3/wp-content/uploads/2020/10/2020-ossra-report.pdf), nintey-nine percent (99%) of commercial code bases now include open source software. The same study suggests an average of 445 open-source "components" exist in every commercial code-base - double the number reported in a 2018 study by the same authors. 
+According to a [study funded by Synopsys in 2020](https://ttpsc.com/wp3/wp-content/uploads/2020/10/2020-ossra-report.pdf), nintey-nine percent (99%) of commercial code bases now include open source software. 
 
-The trend is clear, today's web applications and the web applications of the future will be built fully or in part on open-source software. 
+The same study suggests an average of 445 open-source "components" exist in every commercial code-base - double the number reported in a 2018 study by the same authors. 
 
-This means that code from third party developers is more and more intermingled with first party code. This is a massive security risk.
+**The trend is clear, today's web applications and the web applications of the future will be built fully or in part on open-source software.** 
 
-Third party developers may be malicious, and introduce vulnerable code into their package prior to it being integrated with your software. 
+This means that code from third party developers is more and more intermingled with first party code. **This is a massive security risk.**
 
-Third party developers may abandon a package, causing it to become outdated - and as a result vulnerable. 
+* Third party developers may be malicious, and introduce vulnerable code into their package prior to it being integrated with your software. 
+* Third party developers may abandon a package, causing it to become outdated - and as a result vulnerable. 
+* Third party developers may sell or transfer ownership of an open-source package to a new owner with questionable integrity.
+* Third party developers may also hold code to different standards than first-party code. This could result in vulnerabilities and bugs "accidentally" being introduced in your application. 
 
-Third party developers may sell or transfer ownership of an open-source package to a new owner with questionable integrity.
-
-Third party developers may also hold code to different standards than first-party code. This could result in vulnerabilities and bugs "accidentally" being introduced in your application. 
-
-Software Composition Analysis (SCA) vendors (e.g. Sonatype, Snyk, Semgrep) have been capitalizing on these issues for many years now. 
+*Software Composition Analysis* (SCA) vendors (e.g. Sonatype, Snyk, Semgrep) have been capitalizing on these issues for many years now. 
 
 ### Software Composition Analysis (SCA)
 
-SCA tools analyze the digital "supply-chain" that feeds your first party software. Typically these tools make use of open-source vulnerability databases like [mitre.org](https://cve.mitre.org/) (funded by DHS & CISA) in order to spot vulnerable software in your package manager and alert you that said package is not "safe for use". 
+SCA tools analyze the digital "supply-chain" that feeds your first party software. 
+
+Typically these tools make use of open-source vulnerability databases like [mitre.org](https://cve.mitre.org/) (funded by DHS & CISA) in order to spot vulnerable software in your package manager and alert you that said package is not "safe for use". 
 
 These SCA tools typically provide vulnerability severity scores (often [CVSS](https://nvd.nist.gov/vuln-metrics/cvss)) alongside a description of the vulnerability found, in order to convince you (the developer) to remove or upgrade your package/dependency.
 
@@ -67,6 +73,7 @@ What SCA tools do not tell you, is if your first-party code-base is actually cap
 In other words, it's possible that your expensive (often $100,000+ / year) SCA tooling is presenting you with [very little signal in the midst of a lot of noise](https://en.wikipedia.org/wiki/Signal-to-noise_ratio). 
 
 ### Signal vs Noise
+<img src="{{ site.baseurl }}/assets/2022-11-28/jquery.png" alt="jquery"/>
 
 Despite falling in popularity in recent years, [JQuery](https://www.npmjs.com/package/jquery) is still one of the most popular JavaScript libraries. On average, it recieves about 4,000,000 downloads each week via NPM.
 
@@ -95,6 +102,7 @@ despite only 1/159 applications making use of JQuery being affected by this vuln
 That means that SCA tools likely had a false-positive rate of 99.3% in regards to this vulnerability. That is a lot of noise!
 
 ### Reachability Analysis
+<img src="{{ site.baseurl }}/assets/2022-11-28/reach2.png" alt="reach2"/>
 
 It's 2022 and SCA tools are slowly but surely becoming more advanced. Semgrep and Snyk are now offering beta versions of a new feature called **reachability**. 
 
@@ -109,7 +117,7 @@ The outcome of this process is that in a fully functioning SCA with near-perfect
 
 This new technology is in it's earliest phases, and often being sold as a "up-and-coming feature" - but as codebases continue to integrate more and more with third-party code I anticipate that in the next ten years this will become a **killer feature** for SCA. 
 
-Ten years from now it will be common knowledge that vulnerabilities exist everywhere on the web, and are abundant across open source software. Instead of wasting valuable developer time host-swapping libraries on a daily basis, smart reachability analysis will
+Eventually it will be common knowledge that vulnerabilities exist everywhere on the web, and are abundant across open source software. Instead of wasting valuable developer time host-swapping libraries on a daily basis, smart reachability analysis will
 allow corporations to gain insight into ways in which their code is actually vulnerable and de-prioritize dead end work involving vulnerabilities that don't affect your company's software. 
 
-My prediction is that in 10 years time (2033) SCA tools that don't incorporate reachability analysis will be on their way out of the market and into the history books. 
+To conclude - my prediction is that in 10 years time (2033) SCA tools that don't incorporate reachability analysis will be on their way out of the market and into the history books. 
