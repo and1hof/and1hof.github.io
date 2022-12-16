@@ -56,6 +56,7 @@ Rather than configuring the browser to block specific XSS sinks (blocklist appro
 
 ### Configuring Trusted Types
 <img src="{{ site.baseurl }}/assets/2022-12-07/tt2.PNG" alt="Trusted Types Code Demo"/>
+
 Now that Trusted Types is enabled, and blocking all known XSS sinks by default - we must enable and configure these sinks whenever we need to make use of their functionality.
 
 Configuring trusted types is done via JavaScript code, similar to the following:
