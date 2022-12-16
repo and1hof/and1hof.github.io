@@ -7,23 +7,26 @@ title: Trusted Types&#58; Future-proof XSS Defense
 
 ### XSS Defenses are Problematic
 
-Throughout the last 20 years, cross-site scripting (XSS) attacks have consistently been one of the most common forms of vulnerability found in web applications. Google, the world's most popular search engine made the claim that 75% of all valid security bug reports on it's platforms where XSS, costing the search engine giant over $600,000 per year in bug bounties. 
+Throughout the last 20 years, cross-site scripting (XSS) attacks have consistently been one of the most common forms of vulnerability found in web applications. 
+
+[Research performed in 2018](https://www.pandasecurity.com/en/mediacenter/security/xss-common-web-vulnerabilities/) showed that about 18% of all reported vunerabilities in web applications where some type of cross-site scripting attack. 
 
 In the early days of the web, common knowledge was to avoid XSS sinks while programming, don't trust or render user input, and avoid the use of third-party scripts that could do the same. Unfortunately, many of these mitigation tips from the early days simply aren't compatible with the data rich applications of today.
 
 It could be said that XSS is the _anti-thesis_ of a data rich web application. The more user provided inputs are incorporates into an application, the more likely it is for an XSS vulnerability to be found and exploited.
 
-Content-Security-Policy (CSP) attempted to mitigate XSS by performing a blanket block on common sinks like `eval()` and `inline script` - disabling them in a _secure by default_ manner. But the number of sinks in a modern web browser is so vast that managing all of them is an impossible task without sacrificing functionality. 
+[Content-Security-Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) attempted to mitigate XSS by performing a blanket block on common sinks like `eval()` and `inline script` - disabling them in a _secure by default_ manner. But the number of sinks in a modern web browser is so vast that managing all of them is an impossible task without sacrificing functionality. 
 
 Uncommon, but powerful XSS sinks like `HTMLScriptElement.src`, `HTMLElement.manifest` or `Link.imagesrcset` offer developers unique and potent mechanisms for creating and maintaing complex applications and state - but at the cost of additional XSS risk.
 
-Third-party solutions for defending against XSS, like the industry-standard sanitizer DOMPurify exist - but are competing against the browser to offer a secure application context. That means when the browser updates, these tools too must update - and rapidly!
+Third-party solutions for defending against XSS, like the industry-standard sanitizer [DOMPurify](https://github.com/cure53/DOMPurify) exist - but are competing against the browser to offer a secure application context. That means when the browser updates, these tools too must update - and rapidly!
 
 All in all, it could be concluded that XSS is simply a byproduct of the ever evolving web - the more complex web applications become - the more risk for user-provided input to be interpreted somehow as script. 
 
 Trusted types is a brand-new browser security feature that aims to eliminate some of these risks, while still giving the developer power to develop complex web applications.
 
 ### Trusted Types Explained
+<img src="{{ site.baseurl }}/assets/2022-12-07/tt3.PNG" alt="Trusted Types CSP Demo"/>
 
 "[Trusted Types](https://w3c.github.io/trusted-types/dist/spec/)" is a security feature developed by the Google security team which is currently available on the latest versions of Chrome and Edge web browsers. For non-supported browsers, there is currently a [polyfill](https://github.com/w3c/trusted-types#polyfill) which may be implemented that is maintained by w3c. 
 
@@ -52,7 +55,7 @@ The browser's default mode has been changed thanks to Trusted Types from "accept
 Rather than configuring the browser to block specific XSS sinks (blocklist approach), we are now blocking all by default and the developer will be choosing which sinks to enable (allowlist approach).
 
 ### Configuring Trusted Types
-
+<img src="{{ site.baseurl }}/assets/2022-12-07/tt2.PNG" alt="Trusted Types Code Demo"/>
 Now that Trusted Types is enabled, and blocking all known XSS sinks by default - we must enable and configure these sinks whenever we need to make use of their functionality.
 
 Configuring trusted types is done via JavaScript code, similar to the following:
@@ -84,7 +87,7 @@ You can reference any of these by name in a policy, in order to perform blanket 
 It's also possible to operate on a single XSS sink, should you only wish to selectively enforce your policy:
 
 ```javascript
-trustedTypes.createPolicy('sanitize-innerHTML', {
+trustedTypes.createPolicy('sanitize-jslinks', {
     createScript: (value, type, sink) => {
         if (sink === "javascript:") {
             return 'void(0);' // return useless script
@@ -96,6 +99,7 @@ trustedTypes.createPolicy('sanitize-innerHTML', {
 ```
 
 ### Under the Hood
+<img src="{{ site.baseurl }}/assets/2022-12-07/tt4.PNG" alt="Trusted Types Polyfill"/>
 
 At a deeper level, Trusted Types works by defining three new interfaces:
 
@@ -121,12 +125,13 @@ For example, according to the spec `element.innerHTML` takes an input of type `s
 
 This is all documented in the official spec, despite being quite a bore to read:
 
-[3.3. Create a Trusted Type from literal](https://w3c.github.io/trusted-types/dist/spec/#ref-for-typedefdef-trustedtype)
-[3.5. Get Trusted Type compliant string](https://w3c.github.io/trusted-types/dist/spec/#ref-for-typedefdef-trustedtype%E2%91%A0)
-[3.6. Process value with a default policy](https://w3c.github.io/trusted-types/dist/spec/#ref-for-typedefdef-trustedtype%E2%91%A2)
+* [3.3. Create a Trusted Type from literal](https://w3c.github.io/trusted-types/dist/spec/#ref-for-typedefdef-trustedtype)
+* [3.5. Get Trusted Type compliant string](https://w3c.github.io/trusted-types/dist/spec/#ref-for-typedefdef-trustedtype%E2%91%A0)
+* [3.6. Process value with a default policy](https://w3c.github.io/trusted-types/dist/spec/#ref-for-typedefdef-trustedtype%E2%91%A2)
 
 
 ### Summary
+<img src="{{ site.baseurl }}/assets/2022-12-07/tt5.PNG" alt="Trusted Types Error"/>
 
 Trusted Types is a new browser security feature that enables your web applications to be _secure by default_ when dealing with XSS sinks - the opposite of the way browsers have operated in the past.
 
