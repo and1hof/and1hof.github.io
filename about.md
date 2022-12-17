@@ -31,7 +31,9 @@ Beyond JavaScript, I have worked in **C#** and **Java** at professionally.
 My favorite language outside of JavaScript however is **C**, as I prefer using either high or low level languages and find the inbetween languages frustrating. 
 
 ### Hobbies
-I enjoy **reading**, **writing**, **meditation**, **kayaking**, **hiking**, **gardening** and other peaceful activities that help me relax. I find that I obsess over work at times and need to cool down and recharge. Re-connecting with nature through gardening and outdoor activies has been really helpful in that regard.
+I enjoy a combination of activities that help me to relax, reset and stay in good health. I practice **martial arts** (muy thai & bjj), **read** and **write** as much as possible, and have short but important daily **meditation** practice. In the summer months I am also an avid **kayaker** and enjoy **gardening**. 
+
+I find that I often obsess over work (despite loving cybersecurity!) and need to cool down and recharge. Having great hobbies like the ones listed above has been a very effective counterbalance to my career and a boon in my life.
 
 ### Contact
 
