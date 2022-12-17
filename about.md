@@ -5,11 +5,13 @@ permalink: /about/
 ---
 
 ### Personal Details
-I am a **senior security architect** working and residing inside of Seattle, WA.
+I am a **security architect** working and residing inside of Seattle, WA.
 
-Currently I am happily employed at [Coinbase](https://www.coinbase.com) ([COIN](http://www.marketwatch.com/investing/stock/coin)) where I am the security lead for multiple user-facing products such as Ethereum Staking, Coinbase Web App, Coinbase Mobile App and Coinbase Card.
+Currently I am happily employed at [Ripple](https://ripple.com/) designing processes and automation to help banks securely interface with both the fiat and crypto industries.
 
-Previously I worked at [Salesforce](https://www.salesforce.com) ([CRM](http://www.marketwatch.com/investing/stock/crm)) where I was the security lead for 13 teams in Lightning Platform - a department specializing in JavaScript / DOM / NodeJS development.
+Previously I was at [Coinbase](https://www.coinbase.com) ([COIN](http://www.marketwatch.com/investing/stock/coin)) where I was the security architect for multiple user-facing products such as Ethereum Staking, Coinbase Web App, Coinbase Mobile App and Coinbase Card.
+
+I also worked at [Salesforce](https://www.salesforce.com) ([CRM](http://www.marketwatch.com/investing/stock/crm)) where I was the security lead for 13 teams in Lightning Platform - a department specializing in JavaScript / DOM / NodeJS development.
 
 Prior to working at Salesforce I worked at a number of startups as a software engineer, both as a FTE and contractor.
 

@@ -5,7 +5,7 @@ title: Trusted Types&#58; Future-proof XSS Defense
 
 <img src="{{ site.baseurl }}/assets/2022-12-07/tt1.PNG" alt="Trusted Types XSS Security"/>
 
-**Note:** You can also watch my [YouTube video tutorial](https://www.youtube.com/watch?v=tNpV9cqfBIk) where I configure Trusted Types on a live app.
+**Note:** You can also watch my [YouTube video tutorial](https://www.youtube.com/watch?v=IeKLIwJ2ZMY) where I configure Trusted Types on a live app.
 
 ### XSS Defenses are Problematic
 
