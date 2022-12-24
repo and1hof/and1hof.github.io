@@ -11,7 +11,7 @@ title: Trusted Types&#58; Future-proof XSS Defense
 
 Throughout the last 20 years, cross-site scripting (XSS) attacks have consistently been one of the most common forms of vulnerability found in web applications. 
 
-[Research performed in 2018](https://www.pandasecurity.com/en/mediacenter/security/xss-common-web-vulnerabilities/) showed that about 18% of all reported vunerabilities in web applications where some type of cross-site scripting attack. 
+[Research performed in 2018](https://www.pandasecurity.com/en/mediacenter/security/xss-common-web-vulnerabilities/) showed that about 18% of all reported vulnerabilities in web applications where some type of cross-site scripting attack. 
 
 In the early days of the web, common knowledge was to avoid XSS sinks while programming, don't trust or render user input, and avoid the use of third-party scripts that could do the same. Unfortunately, many of these mitigation tips from the early days simply aren't compatible with the data rich applications of today.
 
@@ -19,7 +19,7 @@ It could be said that XSS is the _anti-thesis_ of a data rich web application. T
 
 [Content-Security-Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) attempted to mitigate XSS by performing a blanket block on common sinks like `eval()` and `inline script` - disabling them in a _secure by default_ manner. But the number of sinks in a modern web browser is so vast that managing all of them is an impossible task without sacrificing functionality. 
 
-Uncommon, but powerful XSS sinks like `HTMLScriptElement.src`, `HTMLElement.manifest` or `Link.imagesrcset` offer developers unique and potent mechanisms for creating and maintaing complex applications and state - but at the cost of additional XSS risk.
+Uncommon, but powerful XSS sinks like `HTMLScriptElement.src`, `HTMLElement.manifest` or `Link.imagesrcset` offer developers unique and potent mechanisms for creating and maintaining complex applications and state - but at the cost of additional XSS risk.
 
 Third-party solutions for defending against XSS, like the industry-standard sanitizer [DOMPurify](https://github.com/cure53/DOMPurify) exist - but are competing against the browser to offer a secure application context. That means when the browser updates, these tools too must update - and rapidly!
 
