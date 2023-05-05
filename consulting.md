@@ -31,9 +31,9 @@ I have years of experience as a security architect designing some of the world's
 * [Salesforce Locker](https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/security_code.htm)
   - The world's first production-capable client-side code isolation framework
 * [ShadowRealms](https://github.com/tc39/proposal-shadowrealm/blob/main/explainer.md)
-  - An upcoming JavaScript language security feature to be supported by all browsers in the 2024-2025 timeframe
+  - Native JavaScript language security feature to be supported by all browsers by 2024-2025
 * [Salesforce LWC](https://github.com/salesforce/lwc)
-  - The most popular commercial/enterprise SPA framework
+  - The most popular commercial / enterprise SPA framework
 
 I offer competitive rates, large-project / recurring customer discounts and free project scoping / follow-ups. 
 
