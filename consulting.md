@@ -6,7 +6,6 @@ permalink: /consulting/
 
 <img src="{{ site.baseurl }}/assets/ah-llc-watermark.png" alt="andrew hoffman llc"/>
 
-### Overview
 Does your business have one or more of the following needs?
 
 1. Design / scale an [InfoSec organization](https://en.wikipedia.org/wiki/Information_security)
