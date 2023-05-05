@@ -30,11 +30,11 @@ I have years of experience as a security architect designing some of the world's
   - Complete re-write of mobile application with millions of users in React Native
 * [Salesforce Locker](https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/security_code.htm)
   - The world's first production-capable client-side code isolation framework
-* [ShadowRealms](https://github.com/tc39/proposal-shadowrealm/blob/main/explainer.md))
+* [ShadowRealms](https://github.com/tc39/proposal-shadowrealm/blob/main/explainer.md)
   - An upcoming JavaScript language security feature to be supported by all browsers in the 2024-2025 timeframe
 * [Salesforce LWC](https://github.com/salesforce/lwc)
-  - The most popular commercial SPA framework
+  - The most popular commercial/enterprise SPA framework
 
-I offer competitive rates, large-project / recurring customer discounts and free project scoping & followups. 
+I offer competitive rates, large-project / recurring customer discounts and free project scoping / follow-ups. 
 
-If you are interested in hiring me as a consultant please reach out on [LinkedIn](https://www.linkedin.com/in/and1hof) - and ask for a free phone consultation. 
+If you are interested in hiring me as a consultant please reach out on [LinkedIn](https://www.linkedin.com/in/and1hof) and ask for a free phone consultation. 
