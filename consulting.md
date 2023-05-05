@@ -14,7 +14,7 @@ Does your business have one or more of the following needs?
 4. [Threat model](https://en.wikipedia.org/wiki/Threat_model) a complex application, find vulnerabilities and implement mitigations
 5. Train employees on security best practices, or deliver a security-related talk
 
-If so, I can help your business deliver on those needs rapidly and with excellent quality results.
+If so, I can help your business deliver those needs rapidly with excellent quality results.
 
 I have years of experience as a security architect designing some of the world's most groundbreaking security initiatives and technologies:
 
@@ -28,10 +28,10 @@ I have years of experience as a security architect designing some of the world's
   - The world's most popular ETH scalable shared staking pool
 * [Coinbase React Native](https://www.coinbase.com/blog/announcing-coinbases-successful-transition-to-react-native)
   - Complete re-write of mobile application with millions of users in React Native
+* [ShadowRealms](https://github.com/tc39/proposal-shadowrealm/blob/main/explainer.md)
+  - Native JavaScript language security feature (stage 3/4)
 * [Salesforce Locker](https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/security_code.htm)
   - The world's first production-capable client-side code isolation framework
-* [ShadowRealms](https://github.com/tc39/proposal-shadowrealm/blob/main/explainer.md)
-  - Native JavaScript language security feature to be supported by all browsers by 2024-2025
 * [Salesforce LWC](https://github.com/salesforce/lwc)
   - The most popular commercial / enterprise SPA framework
 
