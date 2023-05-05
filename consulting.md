@@ -29,7 +29,7 @@ I have years of experience as a security architect designing some of the world's
 * [Coinbase React Native](https://www.coinbase.com/blog/announcing-coinbases-successful-transition-to-react-native)
   - Complete re-write of mobile application with millions of users in React Native
 * [ShadowRealms](https://github.com/tc39/proposal-shadowrealm/blob/main/explainer.md)
-  - Native JavaScript language security feature (stage 3)
+  - Native JavaScript language security feature ([ECMA stage 3](https://tc39.es/process-document/))
 * [Salesforce Locker](https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/security_code.htm)
   - The world's first production-capable client-side code isolation framework
 * [Salesforce LWC](https://github.com/salesforce/lwc)
