@@ -37,4 +37,4 @@ I have years of experience as a security architect designing some of the world's
 
 I offer competitive rates, large-project / recurring customer discounts and free project scoping / follow-ups. 
 
-If you are interested in hiring me as a consultant please reach out on [LinkedIn](https://www.linkedin.com/in/and1hof) and ask for a free phone consultation. 
+If you are interested in hiring me as a consultant please fill out my [client intake form](https://forms.gle/5q7cvLiTk4HkFXyy6) and ask for a free phone consultation.  
