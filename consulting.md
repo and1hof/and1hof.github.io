@@ -18,7 +18,7 @@ If so, I can help your business deliver those needs rapidly with excellent quali
 
 I have years of experience as a security architect designing some of the world's most groundbreaking security initiatives and technologies:
 
-* [Web Application Security](https://amzn.to/3LU0QN2) | [2nd edition - Q1 2024](https://amzn.to/48ycZzk)
+* [Web Application Security](https://amzn.to/3LU0QN2) - [2nd edition - Q1 2024](https://amzn.to/48ycZzk)
   - Top selling application security (AppSec) book 2020-2022
   - Adopted into curriculum at three major universities
   - Translated into 4 different languages
