@@ -8,9 +8,9 @@ permalink: /consulting/
 
 Does your business have one or more of the following needs?
 
-1. Design / scale an [InfoSec organization](https://en.wikipedia.org/wiki/Information_security)
-2. Design / build / scale an [SDLC workflow](https://en.wikipedia.org/wiki/Systems_development_life_cycle)
-3. Securely architect a complex application, particularly within [fintech](https://en.wikipedia.org/wiki/Fintech) space
+1. Design/architect (or review existing designs) for a web application where security is crucial
+2. Develop a web application using security best practices (comes with discounts on all other services)
+3. Penetration test an existing (pre or post-production) web application or web3 technology
 4. [Threat model](https://en.wikipedia.org/wiki/Threat_model) a complex application, find vulnerabilities and implement mitigations
 5. Train employees on security best practices, or deliver a security-related talk
 
@@ -20,6 +20,7 @@ I have years of experience as a security architect designing some of the world's
 
 * [Web Application Security](https://amzn.to/3LU0QN2)
   - Top selling application security (AppSec) book 2020-2022
+    - [2nd edition](https://amzn.to/48ycZzk) published in Q1 2024
   - Adopted into curriculum at three major universities
   - Translated into 4 different languages
 * [Coinbase Card](https://www.coinbase.com/card)
