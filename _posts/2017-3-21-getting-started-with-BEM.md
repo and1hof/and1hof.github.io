@@ -13,19 +13,19 @@ CSS components. In other words, it's a way of naming your CSS classes in order t
 2. Improving Code Organization
 3. Easily Namespacing Components
 
-BEM is just one of many ways to organize your CSS classes, and some of it's biggest competition comes
+BEM is just one of many ways to organize your CSS classes, and some of its biggest competition comes
 from [OOCSS](https://appendto.com/2014/04/oocss/), [SMACSS](https://smacss.com/) and [ACSS](https://acss.io/). I am not going to compare the pros/cons of these CSS methodologies in this post,
 but I think you should look through all of them and make your own decisions if you are planning on building
 a project that will contain more than a few-thousand lines of CSS.
 
 Poorly organized CSS becomes exponentially harder to debug and build on top of. It can actually become a bit of a
-performance bottleneck as you run into really large CSS files due to redudancy that reduce pageload times. In
+performance bottleneck as you run into really large CSS files due to redundancy that reduce pageload times. In
 this tutorial, I will walk you through the basics of BEM so you can better organize and maintain your CSS codebase.
 
 ### Getting Started with BEM
-One of the benefits of using BEM over other CSS naming methodologies is that BEM is very straitforwards
-and shouldn't be too confusing to pick up. BEM is actually just an acryonym which stands for 
-"Block, Element, Modifier". The BEM acryonym is actually very descriptive of how your CSS class
+One of the benefits of using BEM over other CSS naming methodologies is that BEM is very straightforward
+and shouldn't be too confusing to pick up. BEM is actually just an acronym which stands for 
+"Block, Element, Modifier". The BEM acronym is actually very descriptive of how your CSS class
 names should be organized. In BEM, "Block", "Element" and "Modifier" all are important terms which
 refer to various parts of a component styled in CSS:
 
@@ -33,7 +33,7 @@ refer to various parts of a component styled in CSS:
 2. **Element**: A part of a block that has no standalone purpose and is tied to a block, e.g. *menu item* or *header title*
 3. **Modifier**: A flag on a block or an element. Modifies the default behavior, e.g. *menu item disabled*, or *header title secondary*
 
-Lets imagine that we have a component that a single post in a web forum. We can break this 
+Let's imagine that we have a component that is a single post in a web forum. We can break this 
 component down to a few important UI components:
 
 1. **Post**: a single forum post
@@ -54,13 +54,13 @@ In HTML/HBS and BEM we can represent this component like this:
 </div>
 ```
 In this example, our *block* element is "post" - a container for all sub elements. The *elements*
-in this example are the "post__title", and "post__reply-button". The "post" block is seperated
-from it's elements by two underscores (*__*). Finally, the *modifiers* are "--enabled" and 
+in this example are the "post__title", and "post__reply-button". The "post" block is separated
+from its elements by two underscores (*__*). Finally, the *modifiers* are "--enabled" and 
 "--disabled".
 
 To summarize our component, we created a *block* which is a container for *elements*. Inside of
 this *block* we made a few elements - both of whom have *modifiers* attached. The block contains elements
-which are capible of being visually modified as a result of modifiers. Additional modifiers could change
+which are capable of being visually modified as a result of modifiers. Additional modifiers could change
 color, size, font-weight, etc. In CSS we could style this markup:
 
 ```css

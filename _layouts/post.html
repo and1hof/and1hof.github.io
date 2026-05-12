@@ -10,8 +10,32 @@ layout: default
   </div>
 
   <div class="date">
-    Written on {{ page.date | date: "%B %e, %Y" }}
+    Written on <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %e, %Y" }}</time>
   </div>
-
-  {% include disqus.html %}
 </article>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ page.title | jsonify }},
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ site.name }}",
+    "url": "{{ site.url }}/about/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "{{ site.name }}"
+  },
+  "url": "{{ site.url }}{{ page.url }}",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ site.url }}{{ page.url }}"
+  },
+  "image": "{{ site.url }}{% if page.image %}{{ page.image }}{% else %}{{ site.avatar }}{% endif %}",
+  "description": {{ page.excerpt | strip_html | normalize_whitespace | jsonify }}
+}
+</script>

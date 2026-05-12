@@ -25,7 +25,7 @@ URI schemes are the combination of a few separate parts, designed by third parti
 
 `and://my:stuff@test.com:8080/location/sublocation?key=things&stuff=keys#section2`
 
-Lets break this down into separate pieces before discussing where protocols can be a security issue.
+Let's break this down into separate pieces before discussing where protocols can be a security issue.
 
 `and://` - This is where the scheme is declared, and the browser first checks this in order to determine what to do with the following strings.
 
@@ -44,9 +44,9 @@ Lets break this down into separate pieces before discussing where protocols can 
 Why do we need to worry about URI Schemes?
 ------------------------------------------
 
-As you probably have guessed, the URI scheme is so flexible that many companies have taken advantage of it to produce their own schemes which have than been adopted into web browsers. Many of these schemes are still supported for legacy reasons, but have not been updated in years or even decades.
+As you probably have guessed, the URI scheme is so flexible that many companies have taken advantage of it to produce their own schemes which have then been adopted into web browsers. Many of these schemes are still supported for legacy reasons, but have not been updated in years or even decades.
 
-The most notorious of this, is the "**JavaScript Pseudo Scheme**" - a scheme that allows you to pass through a string of JavaScript which will be executed in it's own context but with full access to the current DOM and all of it's nodes.
+The most notorious of these is the "**JavaScript Pseudo Scheme**" - a scheme that allows you to pass through a string of JavaScript which will be executed in its own context but with full access to the current DOM and all of its nodes.
 
 You've probably seen this in code before, but not recognized it. The most common use case is:
 
@@ -58,7 +58,7 @@ This trick has been used to create links that did not adhere to normal link beha
 
 This use case is generally harmless.
 
-Now lets consider another use case, which you can imagine is usable on many insecure websites and apps. Since you have access to arbitrary JavaScript code execution, you can traverse the DOM tree and collect whatever data you desire. 
+Now let's consider another use case, which you can imagine is usable on many insecure websites and apps. Since you have access to arbitrary JavaScript code execution, you can traverse the DOM tree and collect whatever data you desire. 
 
 Consider the following scenario:
 
@@ -73,7 +73,7 @@ Below the product is a comments section, where guests can comment on the item an
 
 Jon devises a plan to craft a malicious link to put in his BuyStuffNow comment. He writes a legitimate review, with a legitimate link:
 
-"Hi friends. IF YOU ARE GOING TO BUY THIS PLEASE READ THIS REVIEW FIRST. I used the product for three hours, than **this** happened."
+"Hi friends. IF YOU ARE GOING TO BUY THIS PLEASE READ THIS REVIEW FIRST. I used the product for three hours, then **this** happened."
 
 The link will be constructed as such:
 
@@ -85,7 +85,7 @@ success: function(resultData) { window.location.open('http://www.legitreview.com
 )">this</a>
 ```
 
-To a uneducated user, this is simply a link to a legitimate review on another website. The user may enter their credit card information and than decide to read the review - in which case their credit card information is sent to a malicious web server and stored for malicious uses.
+To an uneducated user, this is simply a link to a legitimate review on another website. The user may enter their credit card information and then decide to read the review - in which case their credit card information is sent to a malicious web server and stored for malicious uses.
 
 ----------
 

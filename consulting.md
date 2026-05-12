@@ -21,7 +21,7 @@ I have years of experience as a security architect designing some of the world's
 * [Web Application Security](https://amzn.to/3LU0QN2) - [2nd Edition: Q1 2024](https://amzn.to/48ycZzk)
   - Top selling application security (AppSec) book 2020-2022
   - Adopted into curriculum at three major universities
-  - Translated into 4 different languages
+  - Translated into 5 different languages
 * [Coinbase Card](https://www.coinbase.com/card)
   - The world's first crypto-powered debit card
 * [Coinbase ETH Staking](https://www.coinbase.com/earn/staking/ethereum)

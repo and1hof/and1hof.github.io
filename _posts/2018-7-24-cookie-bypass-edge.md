@@ -9,7 +9,7 @@ title: Microsoft Edge Cookie Bypass
 Recently I stumbled across a security vulnerability in Microsoft Edge browser caused by an improper implementation of the official DOM specifications. This implementation issue was caused by an incorrectly defined inheritance chain between the main window document and HTMLDocument type objects created by the DOMParser API.
 
 ### Technical Background
-After reading through dozens of commits from several Chrome and FireFox members on the Whatwg GitHub repositories, I have come to the conclusion that the official spec for document has been in flux for the past few years and Microsoft has struggled to keep up with the changes. 
+After reading through dozens of commits from several Chrome and Firefox members on the Whatwg GitHub repositories, I have come to the conclusion that the official spec for document has been in flux for the past few years and Microsoft has struggled to keep up with the changes. 
 
 Before diving into the exploit, here is a quick overview of how the DOM's implementation of document SHOULD work:
 
@@ -22,13 +22,13 @@ As document is now an abstract interface, XMLDocument and HTMLdocument must inhe
 ### Exploit
 A little-known browser API, DOMParser() allows the creation of document objects when provided a string and mime-type as the input.
 
-DOMParser() documentation is shaky, with MDN having a version about two years old from what I can see from Git commits. It's generally a lesser-used API, and it's really a big security risk with similar exploits to Blob() due to it's reliance on raw input data.
+DOMParser() documentation is shaky, with MDN having a version about two years old from what I can see from Git commits. It's generally a lesser-used API, and it's really a big security risk with similar exploits to Blob() due to its reliance on raw input data.
 
 Providing the DOMParser() with an HTML type input produces a document of type HTMLDocument. This document is independent of the main window document, and should not inherit any properties from the main window document. 
 
-However, in Microsoft Edge - main window document cookies are inherited. I've attempted to reproduce on Chrome and FireFox as well. Chrome fixed the issue before I even found it, and it seems to have never existed in FireFox. 
+However, in Microsoft Edge - main window document cookies are inherited. I've attempted to reproduce on Chrome and Firefox as well. Chrome fixed the issue before I even found it, and it seems to have never existed in Firefox. 
 
-This is important, because it can be used as a bypass on almost any web-based app store. For example, the Slack app exchange attempts to containerize JavaScript from third-party developers in your Slack instance so that it cannot leach information from your conversations and send it back to it's own servers. With this bypass, any information stored in the main window cookies is accessable to a third party script even though the addon-app has been contained and does not have direct access to the main window cookies. 
+This is important, because it can be used as a bypass on almost any web-based app store. For example, the Slack app exchange attempts to containerize JavaScript from third-party developers in your Slack instance so that it cannot leak information from your conversations and send it back to its own servers. With this bypass, any information stored in the main window cookies is accessible to a third party script even though the addon-app has been contained and does not have direct access to the main window cookies. 
 
 I have tried this on a number of web based app-exchanges and sites that allow custom HTML/CSS/JS customization and all have been successful at accessing the cookies on Edge - often taking the authentication tokens with it.
 

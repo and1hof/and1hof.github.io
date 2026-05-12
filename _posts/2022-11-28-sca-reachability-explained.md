@@ -25,9 +25,9 @@ According to Wikipedia, a [killer feature](https://en.wikipedia.org/wiki/Killer_
 
 Maven's killer feature was [third-party package management](https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html). Despite not being the first package manager supporting third-party code: Maven utilized a [simple XML configuration structure](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html#minimal-pom), attached itself to one of the most popular back-end languages and launched a developer-driven marketing campaign backed with slick IDE integrations and a popular command-line interface. 
 
-Before long million's of lines of open-source software was available at a developers fingertips and added little-to-no difficulty at the build step. 
+Before long millions of lines of open-source software were available at a developer's fingertips and added little-to-no difficulty at the build step. 
 
-The difficult parts of including another developer's code in your Java application where abstracted away 
+The difficult parts of including another developer's code in your Java application were abstracted away 
 so a developer could focus on building application logic rather than fumbling around with manual build processes. 
 
 With this new feature came a paradigm shift, resulting in server-side applications being comprised of first-party code from *known authors*, and third-party code from *unknown authors*. Software development become more collaborative overnight. 
@@ -45,7 +45,7 @@ NPM could also be used as a tool in developing server-side applications, thanks 
 ### Third Party Code & Security Concerns
 <img src="{{ site.baseurl }}/assets/2022-11-28/oss.PNG" alt="oss"/>
 
-According to a [study funded by Synopsys in 2020](https://ttpsc.com/wp3/wp-content/uploads/2020/10/2020-ossra-report.pdf), nintey-nine percent (99%) of commercial code bases now include open source software. 
+According to a [study funded by Synopsys in 2020](https://ttpsc.com/wp3/wp-content/uploads/2020/10/2020-ossra-report.pdf), ninety-nine percent (99%) of commercial code bases now include open source software. 
 
 The same study suggests an average of 445 open-source "components" exist in every commercial code-base - double the number reported in a 2018 study by the same authors. 
 
@@ -75,7 +75,7 @@ In other words, it's possible that your expensive (often $100,000+ / year) SCA t
 ### Signal vs Noise
 <img src="{{ site.baseurl }}/assets/2022-11-28/jquery.PNG" alt="jquery"/>
 
-Despite falling in popularity in recent years, [JQuery](https://www.npmjs.com/package/jquery) is still one of the most popular JavaScript libraries. On average, it recieves about 4,000,000 downloads each week via NPM.
+Despite falling in popularity in recent years, [JQuery](https://www.npmjs.com/package/jquery) is still one of the most popular JavaScript libraries. On average, it receives about 4,000,000 downloads each week via NPM.
 
 The entire developer-facing public API of JQuery can be found at [api.jquery.com](https://api.jquery.com). With a quick snippet of JavaScript, we can calculate how many public functions the JQuery API includes:
 
@@ -90,14 +90,14 @@ console.log(n) // returns 318 as of 11/28/2022
 
 As of the time of writing this (11/28/2022) the JQuery public API had 318 functions. 
 
-In version 3.4 of JQuery (circa 2020) - two of JQuerie's public API functions where found to be subject to cross-site-scripting (XSS) attacks. The vulnerable functions where `$(selector).html()` and `$(selector).append()`. 
+In version 3.4 of JQuery (circa 2020) - two of JQuery's public API functions were found to be subject to cross-site-scripting (XSS) attacks. The vulnerable functions were `$(selector).html()` and `$(selector).append()`. 
 
 This vulnerability was noted first on [Github](https://github.com/advisories/GHSA-gxr4-xjj5-5px2) and later on various CVE databases. It typically scored between a medium and high severity finding, meaning that it would need to be remediated rapidly. 
 
-Shortly afterwards SCA tools began notifying million's of website owners that JQuery had to be updated to 3.5.1 or greater, else the application JQuery ran inside of would be "compromised". 
+Shortly afterwards SCA tools began notifying millions of website owners that JQuery had to be updated to 3.5.1 or greater, else the application JQuery ran inside of would be "compromised". 
 
-Despite JQuery having 318 public functions, and only two of those functions being vulnerable - almost all SCA owners where notified that they had software compromised. If all functions in JQuery where used in an evenly distributed fashion, that would mean that 
-despite only 1/159 applications making use of JQuery being affected by this vulnerability - 159/159 applications where notified by SCA. 
+Despite JQuery having 318 public functions, and only two of those functions being vulnerable - almost all SCA owners were notified that they had software compromised. If all functions in JQuery were used in an evenly distributed fashion, that would mean that 
+despite only 1/159 applications making use of JQuery being affected by this vulnerability - 159/159 applications were notified by SCA. 
 
 That means that SCA tools likely had a false-positive rate of 99.3% in regards to this vulnerability. That is a lot of noise!
 
@@ -113,9 +113,9 @@ First, SCA tooling detects third-party vulnerabilities the same way it always ha
 Next, instead of throwing your organization into an emergency state whenever a high-severity vulnerability is found, static analysis code is run to detect if you are making use of said vulnerable function.
 Ideally this static analysis code would also do a check against the third-party library's own code to ensure there are no internal calls to the vulnerable function as well. 
 
-The outcome of this process is that in a fully functioning SCA with near-perfect reachability, your organization should only be alerted if you are actually making use of vulnerable code - not simple incorporating a library with un-used vulnerable code.
+The outcome of this process is that in a fully functioning SCA with near-perfect reachability, your organization should only be alerted if you are actually making use of vulnerable code - not simply incorporating a library with un-used vulnerable code.
 
-This new technology is in it's earliest phases, and often being sold as a "up-and-coming feature" - but as codebases continue to integrate more and more with third-party code I anticipate that in the next ten years this will become a **killer feature** for SCA. 
+This new technology is in its earliest phases, and often being sold as an "up-and-coming feature" - but as codebases continue to integrate more and more with third-party code I anticipate that in the next ten years this will become a **killer feature** for SCA. 
 
 Eventually it will be common knowledge that vulnerabilities exist everywhere on the web, and are abundant across open source software. Instead of wasting valuable developer time host-swapping libraries on a daily basis, smart reachability analysis will
 allow corporations to gain insight into ways in which their code is actually vulnerable and de-prioritize dead end work involving vulnerabilities that don't affect your company's software. 

@@ -13,7 +13,7 @@ Last Update: Aug. 22, 2017
 One of the biggest hurdles I see new Javascript developers run into, is learning the tools required to debug Javascript code. Unlike traditional compiled languages,
 which often feature an IDE with robust debugging tools - most Javascript runs on the web and so debugging in an IDE would be futile since many issues will be
 browser / DOM related rather than simply language / algorithmic issues. This adds an additional layer of complexity, and is in fact one of the most often cited "issues"
-with Javascript as a language. Your bugs will not be caught as you right them, and you should learn how to use tools like the Chrome developer console, Postman, etc. to
+with Javascript as a language. Your bugs will not be caught as you write them, and you should learn how to use tools like the Chrome developer console, Postman, etc. to
 find issues with your code. This post focuses on debugging with the Chrome developer console.
 
 ### Overview
@@ -37,7 +37,7 @@ Once opened you will see a few tabs at the top, all of whom have a use in Javasc
 9. Audits
 
 Each of these has a purpose, and you can skip around in this post if there is a particular feature set you are interested in learning about. However,
-for simplicities sake I will just go from left to right describing each tab's usage and providing some example cases.
+for simplicity's sake I will just go from left to right describing each tab's usage and providing some example cases.
 
 ### Elements
 <img src="{{ site.baseurl }}/assets/2017-8-07/elements.png" alt="chrome developer tools"/>
@@ -50,7 +50,7 @@ You can search through all of the HTML and CSS code you find here with ctrl + f,
 is being overridden (for example, you write a style: background-color: red and it does not show up, perhaps someone else wrote background-color: blue !important;).
 
 Beyond being able to see the production state of the HTML and CSS code, the developer console is an excellent test-bed for new HTML / CSS tweaks. If you double click any element
-in the HTML pane, you can modify it's properties, attributes, and associated styles in real-time. This is also excellent for faking posts / messages / pages, so don't trust any screenshots you see on the internet. Yes, you can use developer tools on other people's websites and apps.
+in the HTML pane, you can modify its properties, attributes, and associated styles in real-time. This is also excellent for faking posts / messages / pages, so don't trust any screenshots you see on the internet. Yes, you can use developer tools on other people's websites and apps.
 
 ### Console
 <img src="{{ site.baseurl }}/assets/2017-8-07/console.png" alt="chrome developer tools"/>
@@ -68,7 +68,7 @@ pre/post change console output.
 "Selected context only" is an excellent selection for applications that have a lot of communication between components. When this setting is checked, only the currently in context
 JS code can print to the console. This allows you to be more specific about what logs you want to see.
 
-"LogXMLHTTPRequests" is very strait forwards, it toggles the logging of XMLHTTP requests. I leave off unless needed.
+"LogXMLHTTPRequests" is very straightforward, it toggles the logging of XMLHTTP requests. I leave off unless needed.
 
 The next option "show timestamps" is useful for one thing mainly: simple, quick performance tests. In particular testing HTTP request performance. Here is an example:
 
@@ -100,8 +100,8 @@ I would start off getting familiar with the console and elements tabs since they
 <img src="{{ site.baseurl }}/assets/2017-8-07/sources.png" alt="chrome developer tools"/>
 
 The sources tab is important, but I believe you should first master both the console and elements tabs. The sources tab shows you the raw HTML, CSS and JS files that
-where loaded in the browser. It is important to understand how this differs from the elements tab. The elements tab is the current state of the DOM in memory. The sources
-tab shows the files that where used to generate that DOM. In otherwords, if you have Javascript that dynamically modifies the DOM (think React / EmberJS), you can see your
+were loaded in the browser. It is important to understand how this differs from the elements tab. The elements tab is the current state of the DOM in memory. The sources
+tab shows the files that were used to generate that DOM. In other words, if you have Javascript that dynamically modifies the DOM (think React / EmberJS), you can see your
 JS code in the sources tab but it might not be in the elements tab.
 
 The sources tab is also an excellent place for debugging. Here we can set breakpoints in any file the browser has access to. Reload the page, and whenever that breakpoint is hit
@@ -113,7 +113,7 @@ fed into the DOM and manipulated by whatever SPA framework you are using.
 ### Network
 <img src="{{ site.baseurl }}/assets/2017-8-07/network.png" alt="chrome developer tools"/>
 
-The network tab is important in it's own right, but is a bit more self explanatory. When firing API calls, (e.g. JQuery AJAX or vanilla JS XHR) you can see both the
+The network tab is important in its own right, but is a bit more self explanatory. When firing API calls, (e.g. JQuery AJAX or vanilla JS XHR) you can see both the
 sent data and the response in this tab. It works very similar to a dumbed down version of Postman in some regards. You can also configure it to show you when CSS / JS / Media files load in over the network, which is useful for troubleshoot slow load times.
 
 After a network transaction, you will see a short string representing the transaction appear on the left hand pane. If you click on this you can get more details. Most importantly:

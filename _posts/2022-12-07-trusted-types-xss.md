@@ -11,11 +11,11 @@ title: Trusted Types&#58; Future-proof XSS Defense
 
 Throughout the last 20 years, cross-site scripting (XSS) attacks have consistently been one of the most common forms of vulnerability found in web applications. 
 
-[Research performed in 2018](https://www.pandasecurity.com/en/mediacenter/security/xss-common-web-vulnerabilities/) showed that about 18% of all reported vulnerabilities in web applications where some type of cross-site scripting attack. 
+[Research performed in 2018](https://www.pandasecurity.com/en/mediacenter/security/xss-common-web-vulnerabilities/) showed that about 18% of all reported vulnerabilities in web applications were some type of cross-site scripting attack. 
 
 In the early days of the web, common knowledge was to avoid XSS sinks while programming, don't trust or render user input, and avoid the use of third-party scripts that could do the same. Unfortunately, many of these mitigation tips from the early days simply aren't compatible with the data rich applications of today.
 
-It could be said that XSS is the _anti-thesis_ of a data rich web application. The more user provided inputs are incorporates into an application, the more likely it is for an XSS vulnerability to be found and exploited.
+It could be said that XSS is the _anti-thesis_ of a data rich web application. The more user provided inputs are incorporated into an application, the more likely it is for an XSS vulnerability to be found and exploited.
 
 [Content-Security-Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) attempted to mitigate XSS by performing a blanket block on common sinks like `eval()` and `inline script` - disabling them in a _secure by default_ manner. But the number of sinks in a modern web browser is so vast that managing all of them is an impossible task without sacrificing functionality. 
 
@@ -75,7 +75,7 @@ if (window.trustedTypes && trustedTypes.createPolicy) {
 
 First, we check to see if the browser supports trusted types - and log an error on the edge-case that the browser is Firefox or Safari (not yet supported). 
 
-Next, we _create a policy_. You may create as many trusted types _policies_ as you would like, and each is capable of containing it's own code dictating how a particular sink or set of sinks may be used in your application. This policy is named _sanitize-html_ and allows sinks from the list of sinks that create HTML to be used - but only if they run their inputs through `DOMPurify.sanitize()` prior to injection. 
+Next, we _create a policy_. You may create as many trusted types _policies_ as you would like, and each is capable of containing its own code dictating how a particular sink or set of sinks may be used in your application. This policy is named _sanitize-html_ and allows sinks from the list of sinks that create HTML to be used - but only if they run their inputs through `DOMPurify.sanitize()` prior to injection. 
 
 This programming model might look similar to a rare, but potent design pattern called the _[proxy pattern](https://en.wikipedia.org/wiki/Proxy_pattern)_ in which an object intercepts data and acts on it prior to passing it on to the target function. This is because, trusted types in fact makes use of the _Proxy_ object built into JavaScript in order to allow for such functionality to exist.
 
@@ -122,9 +122,9 @@ interface TrustedScript {
 
 The policies defined by the user as we saw above, determine what type of transformations occur against the values stored in these interfaces. 
 
-Upon loading an HTML page with Trusted Types enabled, the browser will cross-reference it's list of XSS sinks and replace them with the best match of the three aforementioned interfaces. 
+Upon loading an HTML page with Trusted Types enabled, the browser will cross-reference its list of XSS sinks and replace them with the best match of the three aforementioned interfaces. 
 
-For example, according to the spec `element.innerHTML` takes an input of type `string` denoted by the name `htmlString` which is than parsed into HTML nodes. When Trusted Types is enabled, `element.innerHTML` now takes an input of type `TrustedHTML` (a _trusted type_) which performs transformation as defined in a _policy_ prior to insertion.
+For example, according to the spec `element.innerHTML` takes an input of type `string` denoted by the name `htmlString` which is then parsed into HTML nodes. When Trusted Types is enabled, `element.innerHTML` now takes an input of type `TrustedHTML` (a _trusted type_) which performs transformation as defined in a _policy_ prior to insertion.
 
 This is all documented in the official spec, despite being quite a bore to read:
 

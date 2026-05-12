@@ -20,13 +20,13 @@ This is your Salesforce instance *without* the use of custom Aura front-end comp
 This is where Aura comes in, although we could build our components up using AngularJS or another front-end component framework - the data would be exposed to anything traversing the DOM. If your front-end component displays sensitive sales information, and you put it right by a third party component from another developer - that third party component could traverse the DOM up to your data and send that sensitive information back to it's own servers. This is of course a security risk, and is the reason why Aura is preferred by Salesforce for building out new Salesforce UI components.
 
 ### Getting Started With Aura Development
-Unfortunately, the developers tools for building Aura components are very naive right now and at times difficult to work with. Most front-end frameworks are written in a pseudo-Javascript, and than compiled down to Javascript. As a result of being originally designed by a team of Java developers, Aura has some quirks in this regard. In particular, the pipeline for rendering an aura component is pseudo-Javascript -> HTTP -> compiled in server-side Java -> HTTP -> rendered Javascript. This design choice also proves a huge performance bottleneck, and so for applications that require many re-renders Aura might not be the best choice even though it provides additional security.
+Unfortunately, the developers tools for building Aura components are very naive right now and at times difficult to work with. Most front-end frameworks are written in a pseudo-Javascript, and then compiled down to Javascript. As a result of being originally designed by a team of Java developers, Aura has some quirks in this regard. In particular, the pipeline for rendering an aura component is pseudo-Javascript -> HTTP -> compiled in server-side Java -> HTTP -> rendered Javascript. This design choice also proves a huge performance bottleneck, and so for applications that require many re-renders Aura might not be the best choice even though it provides additional security.
 
-This means, that in order to develop Aura components right now (prior to SalesforceDX) - you will most likely have to use the integrated web-based developer tooling. Cloud9 also has a Salesforce offering, but I have not yet used it and cant vouch for it as a result (this could be a better option though).
+This means, that in order to develop Aura components right now (prior to SalesforceDX) - you will most likely have to use the integrated web-based developer tooling. Cloud9 also has a Salesforce offering, but I have not yet used it and can't vouch for it as a result (this could be a better option though).
 
-To get started with Aura development in it's current stage you will have to open up your Salesforce instance my-instance.salesforce.com and navigate to the top right menu bar. From here you can open the "developer console".
+To get started with Aura development in its current stage you will have to open up your Salesforce instance my-instance.salesforce.com and navigate to the top right menu bar. From here you can open the "developer console".
 
-From the developer console you are going to want to select "file" on your menu bar and than click new -> lightning component. This will generate a lightning component bundle which starts out with just a .cmp file (similar to HTML), but can be extended to include other pieces such as controllers, helpers, and renderers. Click these pieces on the right of the developer console to generate scaffolds and add them to your lightning component bundle.
+From the developer console you are going to want to select "file" on your menu bar and then click new -> lightning component. This will generate a lightning component bundle which starts out with just a .cmp file (similar to HTML), but can be extended to include other pieces such as controllers, helpers, and renderers. Click these pieces on the right of the developer console to generate scaffolds and add them to your lightning component bundle.
 
 <img src="{{ site.baseurl }}/assets/2017-3-28/developer-console.png" alt="locker service"/>
 
@@ -46,7 +46,7 @@ Now, in order to define data inside of a Aura component we can't actually define
 
 Let that sink in for a moment.
 
-Lets take a step back and look at an example Aura component:
+Let's take a step back and look at an example Aura component:
 
 ```html
 <aura:component implements="force:lightningQuickAction" access="global" >
@@ -102,7 +102,7 @@ Use the generated CSS file to style your components, but also remember that all 
 #### Controller
 Generating a controller will provide you with a *myComponentController.js* file. Unlike other MVC frameworks where the controller is responsible for handling the bulk of view logic, and one-off ad-hoc functionality is delegated to helpers - in Aura the controller has extremely limited functionality and is only used for making calls to the helper.
 
-It's easy to try to put your logic in the controller when you begin writing Aura components, but you will soon find out the limitations of this. For example, controller methods cannot call other controller methods (except via some DOM hackery) so you end up with very bulky multi-purpose methods (a bad practice from a architecture perspective).
+It's easy to try to put your logic in the controller when you begin writing Aura components, but you will soon find out the limitations of this. For example, controller methods cannot call other controller methods (except via some DOM hackery) so you end up with very bulky multi-purpose methods (a bad practice from an architecture perspective).
 
 Instead, we will use our controller methods as an intermediary between the .cmp markup and the helper file:
 
@@ -120,7 +120,7 @@ You can call controller methods quite easily in the markup by using pre-register
 ```html
 <button onclick="{!c.helloWorldButtonClicked}"></button>
 ```
-However, please be careful when referencing a controller action using the *c.actionName* namespace. If your component is registered to an Apex controller in addition to it's Javascript controller they will both be merged into the same namespace. In otherwords:
+However, please be careful when referencing a controller action using the *c.actionName* namespace. If your component is registered to an Apex controller in addition to its Javascript controller they will both be merged into the same namespace. In other words:
 
 ```Java
 public ArrayList<Integer> getValues() {
@@ -166,7 +166,7 @@ Since helpers can also call other helpers easily, it makes it possible to break 
 })
 ```
 #### Renderer
-The renderer is going to used much less often, but can be very important. The render has default functionality (rendering and re-rendering the component mostly), but all of these steps have hooks that you can add additional functionality to.
+The renderer is going to be used much less often, but can be very important. The render has default functionality (rendering and re-rendering the component mostly), but all of these steps have hooks that you can add additional functionality to.
 
 For example, if you are writing a component that displays a form field and between loads the data is persisting in the form field (a common problem caused by the garbage collector not being entirely efficient in single page applications, and leaving variables in ephemeral memory) - you can use one of the [lifecycle hooks](https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/components_lifecycle.htm) to manually wipe form state whenever the component is re-rendered. Be cautious however, as other parts of your component (e.g. validations) might trigger early re-renders. Doing your research into the lifecycle of an Aura component is essential for these lower level problems.
 
@@ -194,7 +194,7 @@ I've found that lightning tabs are the easiest way to debug your Aura components
 but in my experience it can take up to 5 minutes in a tab for full synchronization after modifying a component and reloading the tab for testing.
 
 Lightning communities do not seem to have this problem. However, they do have some quirks regarding their versioning of SLDS CSS (it is not always the same as on the rest of the platform) and
-URL hyperlinks. When I test components in lightning communities I opt to open up the page in the builder and than preview -> open in new tab. The new tab is reloadable so you don't have to navigate through the builder every time you push new code.
+URL hyperlinks. When I test components in lightning communities I opt to open up the page in the builder and then preview -> open in new tab. The new tab is reloadable so you don't have to navigate through the builder every time you push new code.
 
 ### Conclusion
 Aura acts similarly to other frameworks, albeit with a bit less polish and a few more quirks. It offers you a lot of power on top of Salesforce, but is still new technology and is frequently improving. If you begin building Aura components right now, I would consider you an early adopter. I think the technology has a lot of potential for powerful and rapid development, and I am excited to see where it is in a few years. 

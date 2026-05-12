@@ -151,7 +151,7 @@ img {
 //
 
 .wrapper-masthead {
-  margin-bottom: 50px;
+  //margin-bottom: 50px;
 }
 
 .masthead {
@@ -286,13 +286,19 @@ footer {
 // tags 
 .tag {
   background-color: #eee;
-  padding: 8px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-right: 4px;
+  padding-left: 4px;
   border-radius: 2px;
   size: 0.8rem;
   display: inline-block;
   margin-top: 8px;
-  margin-right: 8px;
+  margin-right: 6px;
+  font-size: 0.95rem;
+  color: #4d4d4d;
   cursor: pointer;
+  //opacity: 0.85;
 }
 
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
