@@ -1,9 +1,11 @@
 ---
 layout: post
 title: Intro to Web App Security
+description: "A 45-minute talk I gave at a JavaScript conference on the fundamentals of web app security. It covers mapping applications, finding and exploiting common OWASP-10 vulnerabilities, defending against them, and building a security-first culture within an engineering org."
+image: /assets/2018-11-08/img.png
 ---
 
-<img src="{{ site.baseurl }}/assets/2018-11-08/img.png" alt="security"/>
+{% include image.html link=true src="/assets/2018-11-08/img.png" alt="Title slide from Andrew Hoffman's web application security talk" width=1888 height=824 loading="eager" fetchpriority="high" %}
 
 ### Overview
 Every few months Salesforce has been hosting a conference for JavaScript developers here in Bellevue. 

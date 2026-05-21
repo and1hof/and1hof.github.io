@@ -5,9 +5,16 @@
 
     {% include meta.html %}
 
+    <link rel="preload" href="{{ site.baseurl }}/style.css" as="style">
+    <link rel="preload" href="{{ site.baseurl }}/assets/avatar.webp" as="image" type="image/webp" fetchpriority="high">
+    {%- if page.image %}
+    {%- assign hero_webp = page.image | replace_first: '.png', '.webp' | replace_first: '.PNG', '.webp' | replace_first: '.jpg', '.webp' | replace_first: '.jpeg', '.webp' | replace_first: '.JPG', '.webp' | replace_first: '.gif', '.webp' %}
+    <link rel="preload" href="{{ site.baseurl }}{{ hero_webp }}" as="image" type="image/webp" fetchpriority="high">
+    {%- endif %}
     <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
     <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="canonical" href="{{ site.url }}{{ page.url | replace:'index.html','' }}" />
     <meta property="og:image" content="{{ site.url }}/assets/avatar.jpg" />
     <meta property="og:image:width" content="300" />
     <meta property="og:image:height" content="300" />
@@ -17,13 +24,19 @@
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
-      "name": "Andrew Hoffman",
+      "name": "{{ site.name }}",
       "url": "{{ site.url }}",
+      "description": "{{ site.description }}",
       "sameAs": [
         "https://twitter.com/and1hof",
         "https://www.youtube.com/and1hof",
-        "https://linkedin.com/in/and1hof"
+        "https://linkedin.com/in/andf1hof"
       ],
+      "publisher": {
+        "@type": "Person",
+        "name": "Andrew Hoffman",
+        "url": "{{ site.url }}/about/"
+      },
       "potentialAction": {
         "@type": "SearchAction",
         "target": "https://www.google.com/search?q=site%3Aandrewhoffman.me+{search_term_string}",
@@ -37,7 +50,7 @@
     <div class="wrapper-masthead">
       <div class="container">
         <header class="masthead clearfix">
-          <a href="{{ site.baseurl }}/" class="site-avatar"><img src="{{ site.avatar }}" alt="Andrew Hoffman" /></a>
+          <a href="{{ site.baseurl }}/" class="site-avatar">{% include image.html src="/assets/avatar.jpg" alt="Andrew Hoffman" width=70 height=70 loading="eager" fetchpriority="high" %}</a>
 
           <div class="site-info">
             <h1 class="site-name"><a href="{{ site.baseurl }}/">{{ site.name }}</a></h1>
@@ -46,7 +59,7 @@
 
           <nav>
             <a href="{{ site.baseurl }}/">blog</a>
-            <a href="{{ site.baseurl }}/consulting">consulting</a>
+            <a href="{{ site.baseurl }}/llc">services</a>
             <a href="https://amzn.to/4npIu6X" target="_blank" rel="noopener noreferrer">book</a>
             <a href="{{ site.baseurl }}/about">about</a>
           </nav>

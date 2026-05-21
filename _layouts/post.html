@@ -12,6 +12,23 @@ layout: default
   <div class="date">
     Written on <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %e, %Y" }}</time>
   </div>
+
+  <aside class="post-author" aria-label="About the author">
+    <a href="{{ site.baseurl }}/about/" class="post-author-avatar">
+      <picture>
+        <source srcset="{{ site.baseurl }}/assets/avatar.webp" type="image/webp">
+        <img src="{{ site.baseurl }}/assets/avatar.jpg" alt="Andrew Hoffman" width="80" height="80" loading="lazy" decoding="async">
+      </picture>
+    </a>
+    <div class="post-author-body">
+      <p class="post-author-name">Andrew Hoffman</p>
+      <p class="post-author-bio">Software & Security Architect | O’Reilly Author | InfoSec Expert. </br>Available for security consulting through Andrew Hoffman, LLC.</p>
+      <div class="post-author-actions">
+        <a class="llc-btn llc-btn-primary" href="{{ site.baseurl }}/llc/">Hire Andrew &rarr;</a>
+        <a class="llc-btn llc-btn-secondary" href="{{ site.baseurl }}/about/">More about Andrew</a>
+      </div>
+    </div>
+  </aside>
 </article>
 
 <script type="application/ld+json">

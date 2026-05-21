@@ -2,9 +2,18 @@
 layout: page
 title: Consulting
 permalink: /consulting/
+description: Application security consulting by Andrew Hoffman — threat modeling, secure design review, penetration testing, and security training for web and web3 teams.
 ---
 
-<img src="{{ site.baseurl }}/assets/ah-llc-watermark.png" alt="andrew hoffman llc"/>
+{% include image.html src="/assets/ah-llc-watermark.png" alt="Andrew Hoffman LLC logo" width=1617 height=266 loading="eager" fetchpriority="high" %}
+
+<div class="cta-block">
+  <div class="cta-block-text">
+    <p class="cta-block-title">Need application security expertise for your team?</p>
+    <p class="cta-block-sub">Free scoping call. Competitive rates. Recurring-client and large-project discounts available.</p>
+  </div>
+  <a class="llc-btn llc-btn-primary cta-block-btn" href="https://forms.gle/5q7cvLiTk4HkFXyy6" target="_blank" rel="noopener noreferrer">Schedule a Free Consultation &rarr;</a>
+</div>
 
 Does your business have one or more of the following needs?
 

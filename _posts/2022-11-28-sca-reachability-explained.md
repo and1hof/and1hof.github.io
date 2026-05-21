@@ -1,15 +1,17 @@
 ---
 layout: post
-title: Reachability Analysis&#58; SCA "Killer Feature"?
+title: "Reachability Analysis: SCA's Killer Feature?"
+description: "Software composition analysis tools will flag every known vulnerability in your dependency tree, regardless of if they are actually exploitable based on your implementation or not. Reachability analysis filters the noise down to what's really exploitable. This is a primer on reachability analysis."
+image: /assets/2022-11-28/reach.png
 ---
 
-<img src="{{ site.baseurl }}/assets/2022-11-28/reach.png" alt="snyk reachability analysis"/>
+{% include image.html link=true src="/assets/2022-11-28/reach.png" alt="Screenshot of an SCA tool showing reachability analysis filtering vulnerable dependencies" width=1240 height=736 loading="eager" fetchpriority="high" %}
 
 ### Background
 This is a post about a new technology that I believe has the potential to drastically change the way in which organizations choose automated tools for discovering and managing vulnerabilities in web application source code.
 
 ### Maven's Server-side Revolution
-<img src="{{ site.baseurl }}/assets/2022-11-28/maven.png" alt="maven logo"/>
+{% include image.html link=true src="/assets/2022-11-28/maven.png" alt="Apache Maven logo" width=743 height=214 %}
 In July of 2004, [Maven v1.0](https://en.wikipedia.org/wiki/Apache_Maven) was released to the general public by [Jason van Zyl](https://twitter.com/jvanzyl) - a project that was funded by and would eventually become part of the [Apache Software Foundation](https://www.apache.org)’s suite of open source software products. 
 
 Initially, Maven was used primarily as a Java build automation tool. Maven assisted developers in automating away critical steps in the software development lifecycle. Common steps that could be automated via Maven and a simple XML configuration file included: 
@@ -33,7 +35,7 @@ so a developer could focus on building application logic rather than fumbling ar
 With this new feature came a paradigm shift, resulting in server-side applications being comprised of first-party code from *known authors*, and third-party code from *unknown authors*. Software development become more collaborative overnight. 
 
 ### NPM's Client-side Revolution
-<img src="{{ site.baseurl }}/assets/2022-11-28/npm.png" alt="npm logo"/>
+{% include image.html link=true src="/assets/2022-11-28/npm.png" alt="npm package registry logo" width=1250 height=455 %}
 Later in 2010, [Isaac Z. Schlueter](https://www.linkedin.com/in/isaacschlueter) would launch [NPM](https://npmjs.com) - a package manager for JavaScript-based applications. 
 
 With JavaScript being the only programming language supported by web browsers, NPM would allow client-side applications to consume open-source software across the web in a similar fashion to that of previous server-side package managers like Maven (NPM was also inspired by PHP's "[PEAR](https://pear.php.net/)" and Perl's "[CPAN](https://www.cpan.org/)"). 
@@ -43,7 +45,7 @@ NPM also made popular design choices by switching to [JSON configuration files](
 NPM could also be used as a tool in developing server-side applications, thanks to the rapid adoption of [NodeJS](https://en.wikipedia.org/wiki/Node.js). This meant a full-stack web application could be developed easily in-part with open-source software from developers across the web. 
 
 ### Third Party Code & Security Concerns
-<img src="{{ site.baseurl }}/assets/2022-11-28/oss.PNG" alt="oss"/>
+{% include image.html link=true src="/assets/2022-11-28/oss.PNG" alt="Open-source vulnerability report screenshot" width=397 height=272 %}
 
 According to a [study funded by Synopsys in 2020](https://ttpsc.com/wp3/wp-content/uploads/2020/10/2020-ossra-report.pdf), ninety-nine percent (99%) of commercial code bases now include open source software. 
 
@@ -73,7 +75,7 @@ What SCA tools do not tell you, is if your first-party code-base is actually cap
 In other words, it's possible that your expensive (often $100,000+ / year) SCA tooling is presenting you with [very little signal in the midst of a lot of noise](https://en.wikipedia.org/wiki/Signal-to-noise_ratio). 
 
 ### Signal vs Noise
-<img src="{{ site.baseurl }}/assets/2022-11-28/jquery.PNG" alt="jquery"/>
+{% include image.html link=true src="/assets/2022-11-28/jquery.PNG" alt="jQuery library logo" width=414 height=234 %}
 
 Despite falling in popularity in recent years, [JQuery](https://www.npmjs.com/package/jquery) is still one of the most popular JavaScript libraries. On average, it receives about 4,000,000 downloads each week via NPM.
 
@@ -102,7 +104,7 @@ despite only 1/159 applications making use of JQuery being affected by this vuln
 That means that SCA tools likely had a false-positive rate of 99.3% in regards to this vulnerability. That is a lot of noise!
 
 ### Reachability Analysis
-<img src="{{ site.baseurl }}/assets/2022-11-28/reach2.png" alt="reach2"/>
+{% include image.html link=true src="/assets/2022-11-28/reach2.png" alt="Second screenshot of reachability analysis SCA results" width=617 height=235 %}
 
 It's 2022 and SCA tools are slowly but surely becoming more advanced. [Semgrep](https://semgrep.dev/) and [Snyk](https://snyk.io/) are now offering beta versions of a new feature called **reachability**. 
 

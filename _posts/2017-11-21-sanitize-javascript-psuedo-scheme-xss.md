@@ -1,9 +1,11 @@
 ---
 layout: post
 title: Sanitize JavaScript Scheme to Prevent XSS
+description: "Modern browsers support a long roster of alternate and legacy URI schemes. One of them is javascript:, which attackers can abuse to deliver XSS payloads with ease. This is a comprehensive guide on the risks of the scheme and how to prevent it's exploitation."
+image: /assets/js-scheme.PNG
 ---
 
-<img src="{{ site.baseurl }}/assets/js-scheme.PNG" alt="js-scheme"/>
+{% include image.html link=true src="/assets/js-scheme.PNG" alt="Example of a javascript: URI scheme used as an XSS payload" width=515 height=65 loading="eager" fetchpriority="high" %}
 
 Outside of the most commonly known and supported URI schemes (http:// and https://), most modern web browsers support a full roster of alternate and legacy URI schemes.
 

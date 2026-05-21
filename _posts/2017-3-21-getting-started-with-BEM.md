@@ -1,9 +1,11 @@
 ---
 layout: post
 title: Getting Started with BEM
+description: "BEM, or Block Element Modifier, is a methodology that helps you build complex CSS components. It's a way of naming your CSS classes to avoid conflicts, improve code organization, scale maintainably, and namespace components cleanly. This post is an intro to the BEM methodology."
+image: /assets/BEM.jpg
 ---
 
-<img src="{{ site.baseurl }}/assets/BEM.jpg" alt="BEM CSS"/>
+{% include image.html link=true src="/assets/BEM.jpg" alt="Diagram of the BEM Block Element Modifier naming convention" width=930 height=629 loading="eager" fetchpriority="high" %}
 
 ### What is BEM?
 BEM - or "Block Element Modifier" is a methodology that helps you build complex

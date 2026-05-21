@@ -1,0 +1,24 @@
+{%- comment -%}
+  Responsive image with WebP source + original fallback.
+
+  Required:
+    src   - path under /assets, e.g. "/assets/2020-8-19/cover.png"
+    alt   - alt text
+  Recommended (for CLS):
+    width, height - intrinsic pixel dimensions
+
+  Optional:
+    loading        - "lazy" (default) or "eager"
+    fetchpriority  - "high" | "low" | "auto"
+    class, style   - passthrough attrs
+    link           - if truthy, wrap the picture in an anchor
+    link_url       - href for the anchor; defaults to page.url (the current page/post)
+
+  Auto-derives "/assets/foo.webp" by swapping the extension.
+  Emitted on a single line so kramdown does not split block-level HTML inside
+  the optional anchor wrapper across multiple paragraphs.
+{%- endcomment -%}
+{%- assign webp_src = include.src | replace_first: '.png', '.webp' | replace_first: '.PNG', '.webp' | replace_first: '.jpg', '.webp' | replace_first: '.jpeg', '.webp' | replace_first: '.JPG', '.webp' | replace_first: '.gif', '.webp' -%}
+{%- assign loading = include.loading | default: 'lazy' -%}
+{%- capture img_tag -%}<picture><source srcset="{{ site.baseurl }}{{ webp_src }}" type="image/webp"><img src="{{ site.baseurl }}{{ include.src }}" alt="{{ include.alt }}"{% if include.width %} width="{{ include.width }}"{% endif %}{% if include.height %} height="{{ include.height }}"{% endif %}{% if include.class %} class="{{ include.class }}"{% endif %}{% if include.style %} style="{{ include.style }}"{% endif %} loading="{{ loading }}" decoding="async"{% if include.fetchpriority %} fetchpriority="{{ include.fetchpriority }}"{% endif %}></picture>{%- endcapture -%}
+{%- if include.link -%}{%- assign href = include.link_url | default: page.url -%}<a href="{{ site.baseurl }}{{ href }}" class="image-link">{{ img_tag }}</a>{%- else -%}{{ img_tag }}{%- endif -%}

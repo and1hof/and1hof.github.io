@@ -1,9 +1,11 @@
 ---
 layout: post
-title: Trusted Types&#58; Future-proof XSS Defense
+title: "Trusted Types: Future-proof XSS Defense"
+description: "Trusted Types is a brand-new browser security feature aimed at eliminating DOM-based XSS by flipping the model from blocklist to allowlist. All dangerous sinks are disabled by default, and developers explicitly enable the ones they need via JavaScript policies. Learn how to implement trusted types by reading this post."
+image: /assets/2022-12-07/tt1.PNG
 ---
 
-<img src="{{ site.baseurl }}/assets/2022-12-07/tt1.PNG" alt="Trusted Types XSS Security"/>
+{% include image.html link=true src="/assets/2022-12-07/tt1.PNG" alt="Diagram illustrating Trusted Types intercepting DOM sink assignments in a browser" width=1305 height=478 loading="eager" fetchpriority="high" %}
 
 **Note:** You can also watch my [YouTube video tutorial](https://www.youtube.com/watch?v=IeKLIwJ2ZMY) where I configure Trusted Types on a live app.
 
@@ -28,7 +30,7 @@ All in all, it could be concluded that XSS is simply a byproduct of the ever evo
 Trusted types is a brand-new browser security feature that aims to eliminate some of these risks, while still giving the developer power to develop complex web applications.
 
 ### Trusted Types Explained
-<img src="{{ site.baseurl }}/assets/2022-12-07/tt3.PNG" alt="Trusted Types CSP Demo"/>
+{% include image.html link=true src="/assets/2022-12-07/tt3.PNG" alt="Browser Content-Security-Policy header configuring Trusted Types" width=782 height=144 %}
 
 "[Trusted Types](https://w3c.github.io/trusted-types/dist/spec/)" is a security feature developed by the Google security team which is currently available on the latest versions of Chrome and Edge web browsers. For non-supported browsers, there is currently a [polyfill](https://github.com/w3c/trusted-types#polyfill) which may be implemented that is maintained by w3c. 
 
@@ -57,7 +59,7 @@ The browser's default mode has been changed thanks to Trusted Types from "accept
 Rather than configuring the browser to block specific XSS sinks (blocklist approach), we are now blocking all by default and the developer will be choosing which sinks to enable (allowlist approach).
 
 ### Configuring Trusted Types
-<img src="{{ site.baseurl }}/assets/2022-12-07/tt2.PNG" alt="Trusted Types Code Demo"/>
+{% include image.html link=true src="/assets/2022-12-07/tt2.PNG" alt="JavaScript code sample creating a Trusted Types policy" width=614 height=357 %}
 
 Now that Trusted Types is enabled, and blocking all known XSS sinks by default - we must enable and configure these sinks whenever we need to make use of their functionality.
 
@@ -102,7 +104,7 @@ trustedTypes.createPolicy('sanitize-jslinks', {
 ```
 
 ### Under the Hood
-<img src="{{ site.baseurl }}/assets/2022-12-07/tt4.PNG" alt="Trusted Types Polyfill"/>
+{% include image.html link=true src="/assets/2022-12-07/tt4.PNG" alt="Code snippet showing the Trusted Types polyfill in use" width=1232 height=466 %}
 
 At a deeper level, Trusted Types works by defining three new interfaces:
 
@@ -134,7 +136,7 @@ This is all documented in the official spec, despite being quite a bore to read:
 
 
 ### Summary
-<img src="{{ site.baseurl }}/assets/2022-12-07/tt5.PNG" alt="Trusted Types Error"/>
+{% include image.html link=true src="/assets/2022-12-07/tt5.PNG" alt="Browser console error from a Trusted Types policy violation" width=695 height=98 %}
 
 Trusted Types is a new browser security feature that enables your web applications to be _secure by default_ when dealing with XSS sinks - the opposite of the way browsers have operated in the past.
 

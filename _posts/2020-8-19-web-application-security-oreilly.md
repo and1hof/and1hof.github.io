@@ -1,9 +1,11 @@
 ---
 layout: post
 title: My Experience Publishing a Technical Book
+description: "I wrote and published the popular O'Reilly Media Web Application Security book despite knowing little about technical book publishing when I started. This is the behind-the-scenes walkthrough covering proposals, contracts, editing, marketing, and more. An inside look at writing and publishing with a top publisher."
+image: /assets/2020-8-19/cover.png
 ---
 
-<img src="{{ site.baseurl }}/assets/2020-8-19/cover.png" alt="web app security book"/>
+{% include image.html link=true src="/assets/2020-8-19/cover.png" alt="Cover of Web Application Security by Andrew Hoffman, published by O'Reilly Media" width=1070 height=1404 loading="eager" fetchpriority="high" %}
 
 ### Background
 

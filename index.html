@@ -1,18 +1,43 @@
 ---
 layout: default
+description: Application security consulting, books, and writing by Andrew Hoffman — author of O'Reilly's Web Application Security and security architect with experience at Ripple, Coinbase, and Salesforce.
 ---
 
-<div class="posts">
+<section class="home-intro">
+  <h1>Application Security by Andrew Hoffman</h1>
+  <p>
+    I'm a software security architect and the author of O'Reilly's
+    <a href="https://amzn.to/4npIu6X" rel="noopener noreferrer" target="_blank">Web Application Security</a>
+    book series: one of the most popular introductions to application security (aka, AppSec). Beyond this, I offer <a href="{{ site.baseurl }}/consulting/">consulting services</a>
+    via <a href="{{ site.baseurl }}/llc/">Andrew Hoffman, LLC</a>, and operate a popular <a href="https://www.youtube.com/and1hof" target="_blank">AppSec YouTube channel</a>.
+  </p>
+  <p>
+    Below you'll find some of my writing on security, engineering and other related topics that interest me.
+  </p>
+</section>
+
+<!-- <h2 class="home-posts-heading">Blog Posts</h2> -->
+
+<div class="post-list">
   {% for post in site.posts %}
-    <article class="post">
-
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
-
-      <div class="entry">
-        {{ post.excerpt }}
+    {%- assign words = post.content | number_of_words -%}
+    {%- assign read_minutes = words | divided_by: 200 | plus: 1 -%}
+    {%- assign desc = post.description | default: post.excerpt | strip_html | strip_newlines | truncate: 320 -%}
+    <a href="{{ site.baseurl }}{{ post.url }}" class="post-card">
+      {% if post.image %}
+      <div class="post-card-thumb">
+        {% include image.html src=post.image alt=post.title width=400 height=300 %}
       </div>
-
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-    </article>
+      {% endif %}
+      <div class="post-card-body">
+        <p class="post-card-meta">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+          <span aria-hidden="true">·</span>
+          <span>{{ read_minutes }} min read</span>
+        </p>
+        <h3 class="post-card-title">{{ post.title }}</h3>
+        <p class="post-card-desc">{{ desc }}</p>
+      </div>
+    </a>
   {% endfor %}
 </div>

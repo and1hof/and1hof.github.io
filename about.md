@@ -2,7 +2,49 @@
 layout: page
 title: About Me
 permalink: /about/
+description: Andrew Hoffman is a security architect, O'Reilly author of Web Application Security, and founder of Andrew Hoffman, LLC. Previously at Ripple, Coinbase, and Salesforce.
 ---
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Andrew Hoffman",
+  "url": "{{ site.url }}/about/",
+  "image": "{{ site.url }}{{ site.avatar }}",
+  "jobTitle": "Security Architect",
+  "description": "Security architect and O'Reilly author specializing in web application security, threat modeling, browser security, and the JavaScript ecosystem.",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Andrew Hoffman, LLC",
+    "url": "{{ site.url }}/llc/"
+  },
+  "knowsAbout": [
+    "Web Application Security",
+    "Application Security",
+    "Cross-Site Scripting (XSS)",
+    "Content Security Policy",
+    "Trusted Types",
+    "Threat Modeling",
+    "JavaScript Security",
+    "Browser Security",
+    "Penetration Testing",
+    "Software Composition Analysis",
+    "Web3 Security"
+  ],
+  "author": {
+    "@type": "Book",
+    "name": "Web Application Security: Exploitation and Countermeasures for Modern Web Applications",
+    "publisher": "O'Reilly Media"
+  },
+  "sameAs": [
+    "https://twitter.com/and1hof",
+    "https://www.youtube.com/and1hof",
+    "https://www.linkedin.com/in/and1hof",
+    "https://github.com/and1hof"
+  ]
+}
+</script>
 
 ### Personal Details
 I am a **security architect** working and residing inside of Seattle, WA.

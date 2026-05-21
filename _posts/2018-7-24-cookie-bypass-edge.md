@@ -1,9 +1,11 @@
 ---
 layout: post
 title: Microsoft Edge Cookie Bypass
+description: "I discovered a security vulnerability in Microsoft Edge, caused by an incorrectly defined inheritance chain between the main window document and the HTMLDocument objects created by DOMParser. This writeup describes how an attacker could use it to bypass the browser's cookie-access restrictions."
+image: /assets/2018-7-24/edge.jpg
 ---
 
-<img src="{{ site.baseurl }}/assets/2018-7-24/edge.jpg" alt="edge"/>
+{% include image.html link=true src="/assets/2018-7-24/edge.jpg" alt="Microsoft Edge browser logo on a dark background" width=600 height=429 loading="eager" fetchpriority="high" %}
 
 ### Overview
 Recently I stumbled across a security vulnerability in Microsoft Edge browser caused by an improper implementation of the official DOM specifications. This implementation issue was caused by an incorrectly defined inheritance chain between the main window document and HTMLDocument type objects created by the DOMParser API.
