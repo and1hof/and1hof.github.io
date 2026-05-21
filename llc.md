@@ -36,25 +36,28 @@ description: Andrew Hoffman LLC — application security consulting, books, and 
 }
 </script>
 
-<section aria-labelledby="llc-title">
+<section class="llc-hero" aria-labelledby="llc-title">
+  <p class="llc-hero-eyebrow">// Andrew Hoffman, LLC</p>
   <h1 id="llc-title">Services</h1>
-  {% include image.html src="/assets/ah-llc-watermark.png" alt="Andrew Hoffman LLC logo" width=1617 height=266 %}
+  <div class="llc-watermark">
+    {% include image.html src="/assets/ah-llc-watermark.png" alt="Andrew Hoffman LLC logo" width=1617 height=266 %}
+  </div>
   <p>Access Andrew Hoffman's cybersecurity expertise via consulting engagements, educational books, learning materials, trainings & courses - and an upcoming security & privacy focused super-app.</p>
 </section>
 
 <div class="llc-grid">
 
   <article class="llc-card">
-    <span class="llc-eyebrow">Services</span>
+    <span class="llc-eyebrow">// Services</span>
     <h2>Consulting</h2>
     <p>Threat modeling, secure design reviews, pen testing, and security training for teams building web and web3 applications.</p>
     <div class="llc-actions">
-      <a class="llc-btn llc-btn-primary" href="{{ site.baseurl }}/consulting/">View Consulting Services</a>
+      <a class="llc-btn llc-btn-magenta" href="{{ site.baseurl }}/consulting/">View Consulting Services &rarr;</a>
     </div>
   </article>
 
   <article class="llc-card">
-    <span class="llc-eyebrow">Books</span>
+    <span class="llc-eyebrow">// Books</span>
     <h2>Web Application Security</h2>
     <p>The top-selling AppSec book of 2020–2022, adopted into university curricula and translated into five languages. Available in two editions.</p>
     <div class="llc-actions">
@@ -64,11 +67,11 @@ description: Andrew Hoffman LLC — application security consulting, books, and 
   </article>
 
   <article class="llc-card">
-    <span class="llc-eyebrow">Products</span>
+    <span class="llc-eyebrow">// Products</span>
     <h2>LogZero <span class="llc-badge">Coming Soon</span></h2>
     <p>A security-focused iOS app designed to give individuals practical, on-device control over their digital security.</p>
     <div class="llc-actions">
-      <a class="llc-btn llc-btn-primary" href="https://logzero.app" target="_blank" rel="noopener noreferrer">Visit LogZero</a>
+      <a class="llc-btn llc-btn-primary" href="https://logzero.app" target="_blank" rel="noopener noreferrer">Visit LogZero &rarr;</a>
     </div>
   </article>
 

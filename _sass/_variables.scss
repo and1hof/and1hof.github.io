@@ -1,27 +1,91 @@
-
 //
-// VARIABLES
+// BRAND DESIGN TOKENS — Andrew Hoffman
+// Source: Andrew_Branding.pdf
 //
 
-// Colors
-$blue: #4183C4;
+// --- Brand core palette ---
+$brand-electric: #4100F2;   // Electric purple-blue (primary)
+$brand-navy:     #0B0C42;   // Deep navy (page surface)
+$brand-cyan:     #2FD8E9;   // Cyan (links / interactive)
+$brand-magenta:  #DB2561;   // Magenta (CTAs / signals)
 
-// Grays
-$black: #000;
-$darkerGray: #222;
-$darkGray: #333;
-$gray: #777;
-$lightGray: #eee;
-$white: #fff;
+// --- Surfaces (a tonal scale built off navy) ---
+$bg-base:        $brand-navy;         // page bg
+$bg-elevated:    #13144D;             // cards, masthead
+$bg-elevated-2:  #1A1B5C;             // hover/raised
+$bg-sunken:      #07082E;             // code blocks, very-dark surfaces
 
-// Font stacks
-$helvetica: Helvetica, Arial, sans-serif;
-$helveticaNeue: "Helvetica Neue", Helvetica, Arial, sans-serif;
-$georgia: Georgia, serif;
+// --- Borders ---
+$border-subtle:  rgba(255, 255, 255, 0.08);
+$border-strong:  rgba(255, 255, 255, 0.16);
+$border-cyan:    rgba(47, 216, 233, 0.35);
+$border-magenta: rgba(219, 37, 97, 0.40);
 
-// Mobile breakpoints
+// --- Text on dark ---
+$text-strong:    #FFFFFF;
+$text-primary:   #E8E9F5;  // body
+$text-secondary: #A8AAC8;  // sub
+$text-muted:     #7678A0;  // dates, meta
+
+// --- Roles ---
+$link:           $brand-cyan;
+$link-hover:     #5BE6F3;
+$cta:            $brand-magenta;
+$cta-hover:      #E5447B;
+$primary:        $brand-electric;
+$primary-hover:  #5B26FF;
+
+// --- Legacy aliases (some included files reference these) ---
+$blue:        $link;
+$black:       $text-strong;
+$darkerGray:  $text-strong;
+$darkGray:    $text-primary;
+$gray:        $text-muted;
+$lightGray:   $border-subtle;
+$white:       $text-strong;
+
+// --- Type stacks ---
+// Header  ← Acumin Extra Condensed Bold (brand) → Oswald (free closest)
+$font-header: 'Oswald', 'Acumin Pro Extra Condensed', 'Impact', 'Arial Narrow', sans-serif;
+// Body    ← Acumin Light (brand) → Inter (free closest)
+$font-body:   'Inter', 'Acumin Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+// Accent  ← Audiowide (brand) → Audiowide (Google Fonts)
+$font-accent: 'Audiowide', 'Eurostile', 'Bank Gothic', monospace;
+// Mono    → JetBrains Mono / system mono fallback
+$font-mono:   'JetBrains Mono', 'Fira Code', SFMono-Regular, Menlo, Consolas, 'Bitstream Vera Sans Mono', monospace;
+
+// --- Legacy font aliases ---
+$helvetica:    $font-body;
+$helveticaNeue:$font-body;
+$georgia:      $font-body;
+
+// --- Layout ---
+$container-max: 960px;
+$radius-sm: 4px;
+$radius-md: 8px;
+$radius-lg: 14px;
+
+// --- Easing & motion ---
+$ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+$dur-quick: 120ms;
+$dur-base:  200ms;
+
+// --- Mobile breakpoints ---
 @mixin mobile {
   @media screen and (max-width: 640px) {
     @content;
   }
 }
+
+@mixin tablet {
+  @media screen and (max-width: 900px) {
+    @content;
+  }
+}
+
+// --- Brand grid pattern (data URI) ---
+// Subtle 40x40 grid in cyan @ 4% opacity, for masthead/hero overlays.
+$grid-pattern-url: "data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath d='M40 0H0V40' fill='none' stroke='%232FD8E9' stroke-opacity='0.07' stroke-width='1'/%3E%3C/svg%3E";
+
+// --- Brand HUD circle (technical line decoration, inline-style url) ---
+$hud-circle-url: "data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' fill='none' stroke='%232FD8E9' stroke-width='1.2'%3E%3Ccircle cx='100' cy='100' r='90' stroke-opacity='0.55'/%3E%3Ccircle cx='100' cy='100' r='70' stroke-opacity='0.35'/%3E%3Cpath d='M10 100 A90 90 0 0 1 100 10' stroke-opacity='0.9' stroke-width='2'/%3E%3Ccircle cx='100' cy='190' r='4' fill='%232FD8E9' stroke='none'/%3E%3Ccircle cx='100' cy='100' r='3' fill='%23DB2561' stroke='none'/%3E%3C/svg%3E";

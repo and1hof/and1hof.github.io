@@ -5,7 +5,9 @@ permalink: /consulting/
 description: Application security consulting by Andrew Hoffman — threat modeling, secure design review, penetration testing, and security training for web and web3 teams.
 ---
 
+<div class="llc-watermark">
 {% include image.html src="/assets/ah-llc-watermark.png" alt="Andrew Hoffman LLC logo" width=1617 height=266 loading="eager" fetchpriority="high" %}
+</div>
 
 <div class="cta-block">
   <div class="cta-block-text">

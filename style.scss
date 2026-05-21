@@ -15,12 +15,22 @@
 
 html {
   font-size: 100%;
+  background: $bg-base;
 }
 
 body {
-	background: $white;
-  font: 18px/1.4 $helvetica;
-  color: $darkGray;
+  background: $bg-base;
+  // Atmospheric brand gradient — soft electric-purple bloom at top, fades into navy.
+  background-image:
+    radial-gradient(ellipse 1100px 600px at 12% -10%, rgba(65, 0, 242, 0.32), transparent 60%),
+    radial-gradient(ellipse 900px 500px at 95% 0%, rgba(47, 216, 233, 0.10), transparent 55%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font: 17px/1.65 $font-body;
+  font-weight: 400;
+  color: $text-primary;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -28,6 +38,13 @@ body {
 
 #main {
   flex: 1 0 auto;
+  padding-top: 40px;
+  padding-bottom: 60px;
+
+  @include mobile {
+    padding-top: 24px;
+    padding-bottom: 40px;
+  }
 }
 
 .wrapper-footer {
@@ -36,61 +53,114 @@ body {
 
 .container {
   margin: 0 auto;
-  max-width: 900px;
-  padding: 0 10px;
+  max-width: $container-max;
+  padding: 0 24px;
   width: 100%;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: $helveticaNeue;
-  color: $darkerGray;
-  font-weight: bold;
-
-  line-height: 1.7;
-  margin: 1em 0 15px;
-  padding: 0;
 
   @include mobile {
-    line-height: 1.4;
+    padding: 0 16px;
   }
 }
 
+// --- HEADINGS (brand: Oswald Extra Condensed, Caps) ---
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-header;
+  color: $text-strong;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+  margin: 1.6em 0 0.6em;
+  padding: 0;
+}
+
 h1 {
-  font-size: 30px;
+  font-size: 44px;
+  letter-spacing: 0.01em;
+
+  @include mobile {
+    font-size: 34px;
+  }
+
   a {
     color: inherit;
   }
 }
 
 h2 {
-  font-size: 24px;
+  font-size: 32px;
+
+  @include mobile {
+    font-size: 26px;
+  }
 }
 
 h3 {
-  font-size: 20px;
+  font-size: 24px;
+  // Brand-accent left rule on body H3 (the post-section divider feel)
+  position: relative;
+
+  @include mobile {
+    font-size: 21px;
+  }
+}
+
+.entry h3 {
+  padding-left: 14px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.18em;
+    bottom: 0.18em;
+    width: 3px;
+    background: linear-gradient(to bottom, $brand-cyan, $brand-electric);
+    border-radius: 2px;
+  }
+
+  @include mobile {
+    padding-left: 12px;
+  }
 }
 
 h4 {
   font-size: 18px;
-  color: $gray;
+  color: $text-secondary;
+  letter-spacing: 0.06em;
 }
 
 p {
-  margin: 15px 0;
+  margin: 1em 0;
 }
 
 a {
-  color: $blue;
+  color: $link;
   text-decoration: none;
-	cursor: pointer;
+  cursor: pointer;
+  transition: color $dur-quick $ease-out;
+
   &:hover, &:active {
-    color: $blue;
+    color: $link-hover;
+  }
+}
+
+// Inline links inside long-form content get an underline so they stand out
+// against dark mode (necessary signal in body copy).
+.entry a {
+  text-decoration: underline;
+  text-decoration-color: rgba(47, 216, 233, 0.4);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+
+  &:hover {
+    text-decoration-color: $link-hover;
   }
 }
 
 ul, ol {
-  margin: 15px 0;
-  padding-left: 30px;
+  margin: 1em 0;
+  padding-left: 28px;
 }
 
 ul {
@@ -101,57 +171,72 @@ ol {
   list-style-type: decimal;
 }
 
-ol ul, ul ol, ul ul, ol ol {
-  margin: 0;
-}
-
 ul ul, ol ul {
   list-style-type: circle;
 }
 
-em, i {
-  font-style: italic;
+li {
+  margin: 0.4em 0;
+
+  &::marker {
+    color: $brand-cyan;
+  }
 }
 
-strong, b {
-  font-weight: bold;
-}
+em, i { font-style: italic; }
+strong, b { font-weight: 600; color: $text-strong; }
 
 img {
   max-width: 100%;
   height: auto;
 }
 
-// Fixes images in popup boxes from Google Translate
-.gmnoprint img {
-  max-width: none;
-}
+.gmnoprint img { max-width: none; }
 
 .date {
-  font-style: italic;
-  color: $gray;
+  font-family: $font-accent;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: $brand-cyan;
 }
 
-// Specify the color of the selection
-::-moz-selection {
-  color: $black;
-  background: $lightGray;
-}
-::selection {
-  color: $black;
-  background: $lightGray;
-}
+// Selection
+::-moz-selection { color: $brand-navy; background: $brand-cyan; }
+::selection      { color: $brand-navy; background: $brand-cyan; }
 
-// Nicolas Gallagher's micro clearfix hack
-// http://nicolasgallagher.com/micro-clearfix-hack/
 .clearfix:before,
-.clearfix:after {
-    content: " ";
-    display: table;
+.clearfix:after { content: " "; display: table; }
+.clearfix:after { clear: both; }
+
+// Inline code in body
+code {
+  font-family: $font-mono;
+  font-size: 0.9em;
+  background: $bg-sunken;
+  color: $brand-cyan;
+  padding: 0.12em 0.4em;
+  border-radius: 4px;
+  border: 1px solid $border-subtle;
 }
 
-.clearfix:after {
-    clear: both;
+// Blockquote inside posts
+blockquote {
+  margin: 1.8em 0;
+  padding: 0.4em 1.2em;
+  border-left: 3px solid $brand-magenta;
+  color: $text-secondary;
+  font-style: italic;
+  font-size: 1.05em;
+  background: rgba(219, 37, 97, 0.05);
+  border-radius: 0 $radius-sm $radius-sm 0;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, $border-strong, transparent);
+  margin: 3em 0;
 }
 
 /*********************/
@@ -159,36 +244,82 @@ img {
 /*********************/
 
 //
-// .masthead
+// .masthead — branded dark header with grid pattern + cyan glow hairline
 //
 
 .wrapper-masthead {
-  //margin-bottom: 50px;
+  position: relative;
+  background: $bg-elevated;
+  // Subtle grid pattern overlay (brand: technical grid)
+  background-image: url("#{$grid-pattern-url}");
+  background-size: 40px 40px;
+  border-bottom: 1px solid $border-subtle;
+
+  // Cyan glow hairline at the bottom edge
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 1px;
+    background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(47, 216, 233, 0.0) 10%,
+      rgba(47, 216, 233, 0.6) 50%,
+      rgba(47, 216, 233, 0.0) 90%,
+      transparent 100%);
+    pointer-events: none;
+  }
 }
 
 .masthead {
-  padding: 20px 0;
-  border-bottom: 1px solid $lightGray;
+  position: relative;
+  padding: 22px 0 20px;
 
   @include mobile {
+    padding: 18px 0 16px;
     text-align: center;
   }
 }
 
+// Avatar with circular HUD-style ring (echoes brand "technical lines")
 .site-avatar {
+  position: relative;
   float: left;
-  width: 70px;
-  height: 70px;
-  margin-right: 15px;
+  width: 64px;
+  height: 64px;
+  margin-right: 18px;
+  display: block;
 
   @include mobile {
     float: none;
-    display: block;
     margin: 0 auto;
   }
 
-  img {
-    border-radius: 5px;
+  img,
+  picture,
+  picture img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: block;
+    position: relative;
+    z-index: 1;
+    border: 1px solid $border-cyan;
+  }
+
+  .site-avatar-ring {
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    border: 1px solid rgba(47, 216, 233, 0.35);
+    // Three-quarter arc effect via conic mask
+    background:
+      conic-gradient(from 220deg, rgba(47, 216, 233, 0.0) 0deg, rgba(47, 216, 233, 0.55) 60deg, rgba(47, 216, 233, 0.0) 300deg);
+    -webkit-mask: radial-gradient(circle, transparent 70%, #000 71%, #000 100%);
+            mask: radial-gradient(circle, transparent 70%, #000 71%, #000 100%);
+    pointer-events: none;
   }
 }
 
@@ -198,206 +329,239 @@ img {
   @include mobile {
     float: none;
     display: block;
-    margin: 0 auto;
+    margin: 6px auto 0;
   }
 }
 
+.site-eyebrow {
+  font-family: $font-accent;
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: $brand-cyan;
+  margin: 0 0 2px;
+  line-height: 1;
+}
+
 .site-name {
-  margin: 0;
-  color: $darkGray;
-  cursor: pointer;
-  font-family: $helveticaNeue;
-  font-weight: 300;
+  font-family: $font-header;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
   font-size: 28px;
-  letter-spacing: 1px;
+  line-height: 1;
+  margin: 0;
+  color: $text-strong;
+
+  a {
+    color: inherit;
+    background: linear-gradient(90deg, $text-strong 0%, $text-strong 70%, $brand-cyan 100%);
+    -webkit-background-clip: text;
+            background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: filter $dur-base $ease-out;
+
+    &:hover {
+      filter: brightness(1.1) drop-shadow(0 0 8px rgba(47, 216, 233, 0.35));
+    }
+  }
 }
 
 .site-description {
-  margin: -5px 0 0 0;
-  color: $gray;
-  font-size: 16px;
+  margin: 4px 0 0;
+  color: $text-secondary;
+  font-size: 12px;
+  font-family: $font-accent;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
 
   @include mobile {
-    margin: 3px 0;
+    margin: 4px 0 0;
+    font-size: 11px;
+    letter-spacing: 0.16em;
   }
 }
 
 nav {
   float: right;
-  margin-top: 23px; // @TODO: Vertically middle align
-  font-family: $helveticaNeue;
-  font-size: 18px;
+  margin-top: 18px;
+  font-family: $font-body;
+  font-size: 13px;
 
   @include mobile {
     float: none;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 4px;
+    gap: 2px;
     margin-top: 14px;
     padding-top: 12px;
-    border-top: 1px solid $lightGray;
-    font-size: 15px;
+    border-top: 1px solid $border-subtle;
   }
 
   a {
-    margin-left: 20px;
-    color: $darkGray;
-    text-align: right;
-    font-weight: 300;
-    letter-spacing: 1px;
+    position: relative;
+    margin-left: 22px;
+    color: $text-secondary;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    padding: 8px 2px;
+    transition: color $dur-quick $ease-out;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 2px;
+      height: 1px;
+      background: $brand-magenta;
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform $dur-base $ease-out;
+    }
+
+    &:hover,
+    &:focus-visible,
+    &.is-active {
+      color: $text-strong;
+    }
+
+    &:hover::after,
+    &:focus-visible::after,
+    &.is-active::after {
+      transform: scaleX(1);
+    }
 
     @include mobile {
       margin: 0;
-      padding: 12px 14px;
+      padding: 10px 12px;
       min-height: 44px;
       display: inline-flex;
       align-items: center;
-      color: $blue;
-      letter-spacing: 0.5px;
-      border-radius: 6px;
-      transition: background-color 0.15s ease;
+      font-size: 12px;
 
-      &:hover,
-      &:focus {
-        background-color: $lightGray;
-        color: $blue;
-      }
+      &::after { bottom: 6px; }
     }
   }
 }
 
 //
-// .main
+// HOME / HERO
 //
 
 .home-intro {
-  padding-bottom: 20px;
-  border-bottom: 1px solid $lightGray;
+  position: relative;
+  padding: 28px 0 36px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid $border-subtle;
 
   h1 {
-    font-size: 26px;
+    margin: 0 0 18px;
+    line-height: 0.98;
+    background: linear-gradient(120deg, $text-strong 0%, $text-strong 55%, $brand-cyan 90%, $brand-electric 110%);
+    -webkit-background-clip: text;
+            background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    @include mobile {
+      font-size: 38px;
+    }
   }
 
   p {
-    font-size: 16px;
-    line-height: 1.55;
+    font-size: 17px;
+    line-height: 1.65;
+    color: $text-primary;
+    max-width: 70ch;
+  }
+
+  // Accent eyebrow above the H1
+  &::before {
+    content: '// APPSEC PORTFOLIO';
+    display: block;
+    font-family: $font-accent;
+    font-size: 11px;
+    letter-spacing: 0.32em;
+    color: $brand-cyan;
+    margin-bottom: 14px;
   }
 }
 
-.posts > .post {
-  padding-bottom: 2em;
-  border-bottom: 1px solid $lightGray;
-}
+//
+// POST LISTING (homepage)
+//
 
-.posts > .post h2 a {
-  color: inherit;
-}
-
-.posts > .post:last-child {
-  padding-bottom: 1em;
-  border-bottom: none;
-}
-
-.post .entry img {
-  max-width: 100%;
-  height: auto;
-}
-
-.image-link {
-  display: inline-block;
-  line-height: 0;
-}
-
-.post {
-  blockquote {
-    margin: 1.8em .8em;
-    border-left: 2px solid $gray;
-    padding: 0.1em 1em;
-    color: $gray;
-    font-size: 22px;
-    font-style: italic;
-  }
-
-  .comments {
-    margin-top: 10px;
-  }
-
-  .read-more {
-    text-transform: uppercase;
-    font-size: 15px;
-  }
-}
-
-.wrapper-footer {
-  margin-top: 50px;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-  background-color: $lightGray;
-}
-
-footer {
-  padding: 20px 0;
-  text-align: center;
-}
-
-// tags 
-.tag {
-  background-color: #eee;
-  padding-top: 2px;
-  padding-bottom: 2px;
-  padding-right: 4px;
-  padding-left: 4px;
-  border-radius: 2px;
-  size: 0.8rem;
-  display: inline-block;
-  margin-top: 8px;
-  margin-right: 6px;
-  font-size: 0.95rem;
-  color: #4d4d4d;
-  cursor: pointer;
-  //opacity: 0.85;
-}
-
-// Homepage post listing
 .post-list {
-  margin-top: 0;
+  margin-top: 24px;
 }
 
 .post-card {
+  position: relative;
   display: flex;
-  gap: 20px;
-  padding: 20px 12px;
-  border-bottom: 1px solid $lightGray;
+  gap: 24px;
+  padding: 22px;
+  margin-bottom: 16px;
+  background: $bg-elevated;
+  border: 1px solid $border-subtle;
+  border-radius: $radius-md;
   text-decoration: none;
   color: inherit;
-  transition: background-color 0.15s ease;
+  overflow: hidden;
+  transition: transform $dur-base $ease-out, border-color $dur-base $ease-out, background-color $dur-base $ease-out;
+
+  // Magenta accent corner — fades in on hover
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, $brand-magenta, $brand-electric, $brand-cyan);
+    transition: width $dur-base $ease-out;
+  }
 
   &:hover,
   &:focus-visible {
-    background-color: #fafafa;
+    background-color: $bg-elevated-2;
+    border-color: $border-cyan;
     color: inherit;
+    outline: none;
+
+    &::after {
+      width: 100%;
+    }
+
+    .post-card-title {
+      color: $brand-cyan;
+    }
+  }
+
+  &:focus-visible {
+    box-shadow: 0 0 0 2px rgba(47, 216, 233, 0.45);
   }
 
   &:last-child {
-    border-bottom: none;
+    margin-bottom: 0;
   }
 
   @include mobile {
     flex-direction: column;
-    gap: 12px;
-    padding: 16px 8px;
+    gap: 14px;
+    padding: 16px;
   }
 }
 
 .post-card-thumb {
   flex-shrink: 0;
-  width: 250px;
-  height: 188px;
+  width: 240px;
+  height: 160px;
   overflow: hidden;
-  border-radius: 6px;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  background-color: $lightGray;
+  border-radius: $radius-sm;
+  border: 1px solid $border-subtle;
+  background-color: $bg-sunken;
 
   picture,
   img {
@@ -405,11 +569,17 @@ footer {
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: transform 400ms $ease-out, filter $dur-base $ease-out;
+  }
+
+  .post-card:hover & img,
+  .post-card:hover & picture img {
+    transform: scale(1.04);
   }
 
   @include mobile {
     width: 100%;
-    height: 225px;
+    height: 200px;
     order: 2;
   }
 }
@@ -424,28 +594,43 @@ footer {
 }
 
 .post-card-meta {
-  margin: 0 0 6px;
-  font-size: 12px;
-  color: $gray;
+  margin: 0 0 8px;
+  font-family: $font-accent;
+  font-size: 10px;
+  color: $brand-cyan;
   text-transform: uppercase;
-  letter-spacing: 0.6px;
+  letter-spacing: 0.22em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
 
-  time, span {
-    margin-right: 2px;
+  time, span { margin: 0; }
+
+  // Use a pipe separator visually
+  span[aria-hidden] {
+    color: $text-muted;
   }
 
   @include mobile {
     order: 1;
+    font-size: 9.5px;
   }
 }
 
 .post-card-title {
-  font-size: 22px;
-  line-height: 1.3;
-  margin: 0 0 8px;
-  color: $darkerGray;
+  font-family: $font-header;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  font-size: 26px;
+  line-height: 1.12;
+  margin: 0 0 10px;
+  color: $text-strong;
+  transition: color $dur-quick $ease-out;
 
   @include mobile {
+    font-size: 22px;
     order: 1;
     margin: 0;
   }
@@ -453,24 +638,130 @@ footer {
 
 .post-card-desc {
   margin: 0;
-  color: $darkGray;
-  font-size: 15px;
-  line-height: 1.5;
+  color: $text-secondary;
+  font-size: 14.5px;
+  line-height: 1.55;
 
   @include mobile {
     order: 3;
+    font-size: 14px;
   }
 }
 
-// Author bio block (end of post)
+//
+// PAGE / POST CONTENT
+//
+
+.post-eyebrow,
+.page-eyebrow {
+  font-family: $font-accent;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: $brand-cyan;
+  margin: 8px 0 0;
+  display: block;
+
+  time {
+    color: $text-secondary;
+    font-family: $font-accent;
+  }
+}
+
+.page,
+.post {
+  // Hero title treatment for post/page headers
+  > h1 {
+    font-size: 52px;
+    line-height: 1.02;
+    margin: 16px 0 26px;
+    position: relative;
+    padding-bottom: 22px;
+
+    @include mobile {
+      font-size: 36px;
+      padding-bottom: 16px;
+      margin: 8px 0 20px;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 64px;
+      height: 3px;
+      background: linear-gradient(90deg, $brand-magenta, $brand-electric);
+      border-radius: 2px;
+    }
+  }
+
+  .entry {
+    font-size: 17px;
+    line-height: 1.75;
+    color: $text-primary;
+
+    img {
+      border-radius: $radius-sm;
+      border: 1px solid $border-subtle;
+      margin: 1em 0;
+    }
+
+    h3 {
+      margin-top: 2.2em;
+      margin-bottom: 0.6em;
+    }
+  }
+
+  > .date {
+    margin-top: 32px;
+    padding-top: 18px;
+    border-top: 1px solid $border-subtle;
+  }
+}
+
+.image-link {
+  display: inline-block;
+  line-height: 0;
+}
+
+.post .read-more {
+  text-transform: uppercase;
+  font-family: $font-accent;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+}
+
+//
+// AUTHOR BIO BLOCK (end of post)
+//
+
 .post-author {
+  position: relative;
   display: flex;
-  gap: 20px;
+  gap: 22px;
   align-items: flex-start;
   margin-top: 50px;
   padding: 24px;
-  background-color: $lightGray;
-  border-radius: 8px;
+  background: $bg-elevated;
+  background-image:
+    radial-gradient(ellipse 400px 220px at 100% 0%, rgba(65, 0, 242, 0.20), transparent 60%),
+    url("#{$grid-pattern-url}");
+  background-size: auto, 40px 40px;
+  background-repeat: no-repeat, repeat;
+  border: 1px solid $border-subtle;
+  border-radius: $radius-md;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, $brand-electric, $brand-cyan, $brand-magenta);
+  }
 
   @include mobile {
     flex-direction: column;
@@ -480,14 +771,16 @@ footer {
 }
 
 .post-author-avatar {
+  position: relative;
   flex-shrink: 0;
   display: block;
   line-height: 0;
 
   img {
-    width: 80px;
-    height: 80px;
+    width: 88px;
+    height: 88px;
     border-radius: 50%;
+    border: 1px solid $border-cyan;
   }
 }
 
@@ -498,16 +791,19 @@ footer {
 
 .post-author-name {
   margin: 0 0 4px;
-  font-weight: bold;
-  color: $darkerGray;
-  font-size: 16px;
+  font-family: $font-header;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 700;
+  color: $text-strong;
+  font-size: 22px;
 }
 
 .post-author-bio {
-  margin: 0 0 14px;
-  color: $darkGray;
-  font-size: 14px;
-  line-height: 1.55;
+  margin: 0 0 16px;
+  color: $text-secondary;
+  font-size: 14.5px;
+  line-height: 1.6;
 }
 
 .post-author-actions {
@@ -520,29 +816,45 @@ footer {
   }
 
   .llc-btn {
-    font-size: 14px;
-    padding: 9px 14px;
+    font-size: 12px;
+    padding: 10px 16px;
     min-height: auto;
   }
 }
 
-// Consulting page CTA
+//
+// CONSULTING PAGE CTA
+//
+
 .cta-block {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
-  margin: 24px 0 32px;
-  padding: 20px 24px;
-  background-color: #f3f8fc;
-  border: 1px solid #d4e6f4;
-  border-radius: 8px;
+  gap: 24px;
+  margin: 28px 0 36px;
+  padding: 24px 28px;
+  background: $bg-elevated;
+  background-image: radial-gradient(ellipse 600px 300px at 0% 50%, rgba(65, 0, 242, 0.25), transparent 60%);
+  border: 1px solid $border-cyan;
+  border-radius: $radius-md;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, $brand-cyan, $brand-electric);
+  }
 
   @include mobile {
     flex-direction: column;
     align-items: stretch;
-    text-align: center;
-    padding: 18px;
+    text-align: left;
+    padding: 20px;
   }
 }
 
@@ -553,14 +865,17 @@ footer {
 
 .cta-block-title {
   margin: 0 0 4px;
-  font-weight: 600;
-  color: $darkerGray;
-  font-size: 16px;
+  font-family: $font-header;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-weight: 700;
+  color: $text-strong;
+  font-size: 20px;
 }
 
 .cta-block-sub {
   margin: 0;
-  color: $darkGray;
+  color: $text-secondary;
   font-size: 14px;
 }
 
@@ -569,43 +884,150 @@ footer {
   white-space: nowrap;
 }
 
-// LLC page
+//
+// LLC / SERVICES PAGE
+//
+
+.llc-hero {
+  position: relative;
+  padding: 20px 0 30px;
+
+  h1 {
+    font-size: 64px;
+    margin: 6px 0 20px;
+    line-height: 0.96;
+
+    @include mobile {
+      font-size: 42px;
+    }
+  }
+
+  p {
+    color: $text-secondary;
+    font-size: 17px;
+    max-width: 68ch;
+  }
+}
+
+.llc-hero-eyebrow {
+  font-family: $font-accent;
+  font-size: 11px;
+  letter-spacing: 0.30em;
+  text-transform: uppercase;
+  color: $brand-cyan;
+  margin: 0;
+}
+
+// The watermark PNG is on-brand artwork — frame it subtly with cyan corner brackets.
+.llc-watermark {
+  position: relative;
+  margin: 22px 0;
+  max-width: 560px;
+  border-radius: $radius-sm;
+  overflow: hidden;
+  border: 1px solid $border-cyan;
+  box-shadow: 0 0 32px rgba(47, 216, 233, 0.10);
+
+  picture,
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-color: $brand-cyan;
+    border-style: solid;
+    pointer-events: none;
+  }
+
+  &::before { top: 6px; left: 6px; border-width: 2px 0 0 2px; }
+  &::after  { bottom: 6px; right: 6px; border-width: 0 2px 2px 0; }
+}
+
+
 .llc-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
-  margin: 30px 0 20px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 22px;
+  margin: 32px 0 24px;
+
+  @include mobile {
+    gap: 16px;
+  }
 }
 
 .llc-card {
-  background: $white;
-  border: 1px solid $lightGray;
-  border-radius: 8px;
-  padding: 24px;
+  position: relative;
+  background: $bg-elevated;
+  border: 1px solid $border-subtle;
+  border-radius: $radius-md;
+  padding: 28px 24px 24px;
   display: flex;
   flex-direction: column;
-}
+  overflow: hidden;
+  transition: transform $dur-base $ease-out, border-color $dur-base $ease-out;
 
-.llc-card h2 {
-  font-size: 20px;
-  margin: 0 0 10px;
-  color: $darkerGray;
+  // Top accent stripe — each card gets one of the brand triad colors
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: $brand-electric;
+  }
+
+  &:nth-child(1) {
+    background-image: radial-gradient(ellipse 500px 280px at 100% 0%, rgba(65, 0, 242, 0.22), transparent 60%);
+    &::before { background: linear-gradient(90deg, $brand-electric, $brand-cyan); }
+  }
+
+  &:nth-child(2) {
+    background-image: radial-gradient(ellipse 500px 280px at 100% 0%, rgba(47, 216, 233, 0.18), transparent 60%);
+    &::before { background: linear-gradient(90deg, $brand-cyan, $brand-electric); }
+  }
+
+  &:nth-child(3) {
+    background-image: radial-gradient(ellipse 500px 280px at 100% 0%, rgba(219, 37, 97, 0.22), transparent 60%);
+    &::before { background: linear-gradient(90deg, $brand-magenta, $brand-electric); }
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    border-color: $border-strong;
+  }
+
+  h2 {
+    font-size: 24px;
+    margin: 0 0 10px;
+    color: $text-strong;
+    text-transform: uppercase;
+  }
 }
 
 .llc-card .llc-eyebrow {
+  display: inline-block;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 12px;
-  color: $blue;
-  font-weight: 600;
-  margin-bottom: 6px;
+  letter-spacing: 0.22em;
+  font-size: 10px;
+  color: $brand-cyan;
+  font-family: $font-accent;
+  font-weight: 400;
+  margin-bottom: 10px;
 }
 
 .llc-card p {
-  color: #555;
-  font-size: 15px;
-  line-height: 1.55;
-  margin: 0 0 18px;
+  color: $text-secondary;
+  font-size: 14.5px;
+  line-height: 1.6;
+  margin: 0 0 22px;
   flex-grow: 1;
 }
 
@@ -618,84 +1040,260 @@ footer {
 .llc-btn {
   display: inline-block;
   text-align: center;
-  padding: 11px 16px;
-  border-radius: 6px;
-  font-size: 15px;
-  font-weight: 500;
+  padding: 12px 18px;
+  border-radius: $radius-sm;
+  font-family: $font-accent;
+  font-size: 11px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
   line-height: 1.2;
   min-height: 44px;
   box-sizing: border-box;
   text-decoration: none;
+  transition: background-color $dur-quick $ease-out, color $dur-quick $ease-out, border-color $dur-quick $ease-out, transform $dur-quick $ease-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .llc-btn-primary {
-  background-color: $blue;
-  color: $white;
-  border: 1px solid $blue;
+  background-color: $brand-electric;
+  color: $text-strong;
+  border: 1px solid $brand-electric;
+  box-shadow: 0 0 0 0 rgba(65, 0, 242, 0);
 }
 
 .llc-btn-primary:hover,
-.llc-btn-primary:focus {
-  background-color: #356aa0;
-  border-color: #356aa0;
-  color: $white;
+.llc-btn-primary:focus-visible {
+  background-color: $primary-hover;
+  border-color: $primary-hover;
+  color: $text-strong;
+  box-shadow: 0 0 22px rgba(65, 0, 242, 0.55);
 }
 
 .llc-btn-secondary {
-  background-color: $white;
-  color: $blue;
-  border: 1px solid $blue;
+  background-color: transparent;
+  color: $brand-cyan;
+  border: 1px solid $border-cyan;
 }
 
 .llc-btn-secondary:hover,
-.llc-btn-secondary:focus {
-  background-color: #f3f8fc;
-  color: #356aa0;
+.llc-btn-secondary:focus-visible {
+  background-color: rgba(47, 216, 233, 0.10);
+  border-color: $brand-cyan;
+  color: $link-hover;
+}
+
+// Subtle "magenta CTA" variant — for top-level conversion buttons
+.llc-btn-magenta {
+  background-color: $brand-magenta;
+  color: $text-strong;
+  border: 1px solid $brand-magenta;
+}
+.llc-btn-magenta:hover,
+.llc-btn-magenta:focus-visible {
+  background-color: $cta-hover;
+  border-color: $cta-hover;
+  box-shadow: 0 0 22px rgba(219, 37, 97, 0.45);
 }
 
 .llc-badge {
   display: inline-block;
-  background: #eef5fb;
-  color: #356aa0;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
+  background: rgba(219, 37, 97, 0.15);
+  color: $brand-magenta;
+  font-family: $font-accent;
+  font-size: 9.5px;
+  font-weight: 400;
+  letter-spacing: 0.20em;
   text-transform: uppercase;
-  padding: 3px 8px;
+  padding: 3px 9px;
   border-radius: 999px;
+  border: 1px solid $border-magenta;
   margin-left: 6px;
   vertical-align: middle;
 }
 
 .llc-card a:focus-visible {
-  outline: 2px solid $blue;
+  outline: 2px solid $brand-cyan;
   outline-offset: 2px;
 }
 
-@include mobile {
-  .llc-hero {
-    padding: 20px 5px 5px;
+//
+// FOOTER — dark with cyan icon glow
+//
+
+.wrapper-footer {
+  position: relative;
+  margin-top: 60px;
+  background-color: $bg-elevated;
+  border-top: 1px solid $border-subtle;
+  background-image: url("#{$grid-pattern-url}");
+  background-size: 40px 40px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -1px;
+    height: 1px;
+    background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(47, 216, 233, 0.5) 50%,
+      transparent 100%);
+  }
+}
+
+footer.footer {
+  padding: 32px 0 36px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+// Footer social links — inline SVGs styled via `currentColor`.
+// The circular frame echoes the brand HUD treatment (PDF page 4 "Technical Lines").
+.social-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(47, 216, 233, 0.04);
+  border: 1px solid $border-subtle;
+  color: $text-secondary;
+  transition:
+    color $dur-base $ease-out,
+    border-color $dur-base $ease-out,
+    background-color $dur-base $ease-out,
+    transform $dur-base $ease-out,
+    box-shadow $dur-base $ease-out;
+
+  // Outer cyan arc — partial-conic ring (matches brand HUD treatment).
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -5px;
+    border-radius: 50%;
+    background: conic-gradient(
+      from 220deg,
+      rgba(47, 216, 233, 0) 0deg,
+      rgba(47, 216, 233, 0.55) 60deg,
+      rgba(47, 216, 233, 0) 300deg
+    );
+    -webkit-mask: radial-gradient(circle, transparent 71%, #000 72%, #000 100%);
+            mask: radial-gradient(circle, transparent 71%, #000 72%, #000 100%);
+    opacity: 0;
+    transition: opacity $dur-base $ease-out;
+    pointer-events: none;
   }
 
-  .llc-hero h1 {
-    font-size: 26px;
+  svg {
+    display: block;
+    width: 20px;
+    height: 20px;
   }
 
-  .llc-hero p {
-    font-size: 16px;
+  &:hover,
+  &:focus-visible {
+    color: $brand-cyan;
+    border-color: $border-cyan;
+    background-color: rgba(47, 216, 233, 0.10);
+    transform: translateY(-2px);
+    box-shadow: 0 0 18px rgba(47, 216, 233, 0.30);
+    outline: none;
+
+    &::before {
+      opacity: 1;
+    }
+  }
+}
+
+// Tags (existing class on some posts)
+.tag {
+  background-color: rgba(255, 255, 255, 0.06);
+  padding: 3px 8px;
+  border-radius: 999px;
+  display: inline-block;
+  margin: 8px 6px 0 0;
+  font-family: $font-accent;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: $brand-cyan;
+  border: 1px solid $border-subtle;
+}
+
+// Tables (for the rare blog post that uses them)
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.4em 0;
+  background: $bg-elevated;
+  border: 1px solid $border-subtle;
+  border-radius: $radius-sm;
+  overflow: hidden;
+
+  th, td {
+    padding: 10px 14px;
+    border-bottom: 1px solid $border-subtle;
+    text-align: left;
   }
 
-  .llc-grid {
-    gap: 16px;
-    margin-top: 20px;
+  th {
+    background: $bg-elevated-2;
+    font-family: $font-accent;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: $brand-cyan;
   }
 
-  .llc-card {
-    padding: 20px;
+  tr:last-child td { border-bottom: 0; }
+}
+
+// Pre/code blocks (additional baseline; full theme is in _highlights)
+pre {
+  font-family: $font-mono;
+  font-size: 13.5px;
+  line-height: 1.55;
+  background: $bg-sunken;
+  color: $text-primary;
+  border: 1px solid $border-subtle;
+  border-radius: $radius-sm;
+  padding: 14px 16px;
+  margin: 20px 0;
+  overflow-x: auto;
+
+  code {
+    background: transparent;
+    border: 0;
+    padding: 0;
+    color: inherit;
+    font-size: inherit;
   }
+}
+
+// Focus visibility everywhere
+:focus-visible {
+  outline: 2px solid $brand-cyan;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+// Skip the strong outline on elements that already manage their own focus styling
+.post-card:focus-visible,
+.llc-card a:focus-visible,
+nav a:focus-visible {
+  outline: none;
 }
 
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
 // ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
 @import "highlights";
-@import "svg-icons";
