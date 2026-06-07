@@ -39,7 +39,7 @@ description: Andrew Hoffman LLC — application security consulting, books, and 
 <section aria-labelledby="llc-title">
   <h1 id="llc-title">Services</h1>
   {% include image.html src="/assets/ah-llc-watermark.png" alt="Andrew Hoffman LLC logo" width=1617 height=266 %}
-  <p>Access Andrew Hoffman's cybersecurity expertise via consulting engagements, educational books, learning materials, trainings & courses - and an upcoming security & privacy focused super-app.</p>
+  <p>Access Andrew Hoffman's cybersecurity expertise via consulting engagements, educational books, learning materials, trainings & courses — and LogZero, a privacy-first iOS life tracker.</p>
 </section>
 
 <div class="llc-grid">
@@ -65,10 +65,12 @@ description: Andrew Hoffman LLC — application security consulting, books, and 
 
   <article class="llc-card">
     <span class="llc-eyebrow">Products</span>
-    <h2>LogZero <span class="llc-badge">Coming Soon</span></h2>
-    <p>A security-focused iOS app designed to give individuals practical, on-device control over their digital security.</p>
+    <h2>LogZero</h2>
+    <p>Security and privacy focused iOS life tracker. Military-grade encryption, biometric & passcode support. No ads, no trackers, no telemetry, no analytics, no servers, no cloud.
+    </p>
     <div class="llc-actions">
-      <a class="llc-btn llc-btn-primary" href="https://logzero.app" target="_blank" rel="noopener noreferrer">Visit LogZero</a>
+      <a class="llc-btn llc-btn-primary" href="https://apps.apple.com/us/app/logzero-private-life-tracker/id6773557137" target="_blank" rel="noopener noreferrer">Download on App Store</a>
+      <a class="llc-btn llc-btn-secondary" href="https://logzero.app" target="_blank" rel="noopener noreferrer">Learn More</a>
     </div>
   </article>
 
